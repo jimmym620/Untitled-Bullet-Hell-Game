@@ -6,11 +6,18 @@ public class EnemyBaseScript : MonoBehaviour
 {
 
     public float health = 100f;
+    public AudioClip deathSound;
+
+
+
+    
 
     // Take damage when hit by guns - shotgun and smg
     // If health at 0, enemy dies
     public void TakeDamage(float amount)
     {
+
+        
         health -= amount;
         if (health <= 0f)
         {
@@ -22,9 +29,10 @@ public class EnemyBaseScript : MonoBehaviour
     // Destroy the game object on death
     void Die()
     {
-
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
         Destroy(gameObject);
     }
+
 
 
 

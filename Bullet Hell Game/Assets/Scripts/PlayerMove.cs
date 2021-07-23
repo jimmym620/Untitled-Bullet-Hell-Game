@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed = 30;
+    public float moveSpeed = 10;
     private float horizontalInput;
     private float verticalInput;
 
     // public Vector2 speed = new Vector2(50, 50);
 
-    public float yRange = 3;
-    public float xRange = 8;
+    [SerializeField] public float yRange = 1.4f;
+    [SerializeField] public float yRangeBottom = 18f;
+    [SerializeField] public float xRange = 1;
+    [SerializeField] public float xRangeRight = 3;
 
 
     // Start is called before the first frame update
@@ -24,14 +26,18 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
 
-        if(transform.position.y < -yRange){
-            transform.position = new Vector3(transform.position.x, -yRange, transform.position.z);
+        if(transform.position.y < -yRangeBottom){
+            transform.position = new Vector3(transform.position.x, -yRangeBottom, transform.position.z);
         }
         if(transform.position.y > yRange){
             transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
         }
         if(transform.position.x < -xRange){
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x > xRangeRight)
+        {
+            transform.position = new Vector3(xRangeRight, transform.position.y, transform.position.z);
         }
 
 

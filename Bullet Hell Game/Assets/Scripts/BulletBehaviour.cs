@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 5f;
     public Rigidbody2D rb;
     public int damage = 40;
 
-    private float rightSide = 30;
+    private float rightSide = 10;
 
-
-    // public GameObject impactEffect;
 
     // Start is called before the first frame update
     void Start()
