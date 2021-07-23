@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBaseScript : MonoBehaviour
+public class Enemy : MonoBehaviour, IEntity
 {
 
-    public float health = 100f;
+    public float health = 100;
     public AudioClip deathSound;
 
 
 
-    
-
-    // Take damage when hit by guns - shotgun and smg
     // If health at 0, enemy dies
     public void TakeDamage(float amount)
     {
-
-        
         health -= amount;
         if (health <= 0f)
         {
@@ -27,13 +22,10 @@ public class EnemyBaseScript : MonoBehaviour
 
     // Update UI displays when enemy dies
     // Destroy the game object on death
-    void Die()
+    public void Die()
     {
         AudioSource.PlayClipAtPoint(deathSound, transform.position);
         Destroy(gameObject);
     }
-
-
-
 
 }

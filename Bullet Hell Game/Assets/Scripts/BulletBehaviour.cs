@@ -29,10 +29,15 @@ public class BulletBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo) 
     {
-        EnemyBaseScript enemy = hitInfo.GetComponent<EnemyBaseScript>();
-        if (enemy != null){
-            enemy.TakeDamage(damage);
+        // Enemy enemy = hitInfo.GetComponent<Enemy>();
+        // if (enemy != null){
+        //     enemy.TakeDamage(damage);
+        // }
+        IEntity damageable = hitInfo.GetComponent<IEntity>();
+        if (damageable != null){
+            damageable.TakeDamage(damage);
         }
+
         Destroy(gameObject);
         // Instantiate(impactEffect, transform.position, transform.rotation);
         
