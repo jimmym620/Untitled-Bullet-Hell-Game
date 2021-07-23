@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour, IEntity
 
     public float health = 100;
     public AudioClip deathSound;
+    private bool deathPlayed = false;
+
 
     public Animator deathAnim;
 
@@ -27,7 +29,13 @@ public class Enemy : MonoBehaviour, IEntity
     {
         deathAnim.SetTrigger("Dead");
         Destroy(gameObject, deathAnim.GetCurrentAnimatorStateInfo(0).length);
-        AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        if(!deathPlayed){
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            deathPlayed = true;
+        }
+
+
+    
     }
 
 }
