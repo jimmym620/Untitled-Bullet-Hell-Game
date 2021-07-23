@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float moveSpeed = 10;
-    private float horizontalInput;
-    private float verticalInput;
+    public float horizontalInput;
+    public float verticalInput;
 
     // public Vector2 speed = new Vector2(50, 50);
 
@@ -41,10 +41,10 @@ public class PlayerMove : MonoBehaviour
         }
 
 
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * moveSpeed);
 
-        verticalInput = Input.GetAxis("Vertical");
+        verticalInput = Input.GetAxisRaw("Vertical");
         transform.Translate(Vector3.up * verticalInput * Time.deltaTime * moveSpeed);
 
 
