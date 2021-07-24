@@ -49,7 +49,7 @@ public class PlayerShoot : MonoBehaviour
 
 
         // Mouse button fire
-        if(Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0)
+        if(Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !PauseMenu.GameIsPaused)
         {
             FirePoint.GetComponent<Animator>().SetTrigger("Shooting");
             nextTimeToFire = Time.time + 1 / fireRate;
