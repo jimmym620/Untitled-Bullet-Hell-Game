@@ -8,8 +8,15 @@ public class PauseMenu : MonoBehaviour
     
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public AudioClip selectSound;
+    public AudioClip quitSound;
+    private AudioSource AS;
 
 
+    void Start()
+    {
+        AS = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -50,5 +57,15 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame() 
     {
         Application.Quit();
+    }
+
+    public void playSelectSound()
+    {
+        AS.PlayOneShot(selectSound);
+    }
+    
+    public void playQuitSound()
+    {
+        AS.PlayOneShot(quitSound);
     }
 }
