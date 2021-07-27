@@ -39,4 +39,9 @@ public class Enemy : MonoBehaviour, IEntity
     
     }
 
+    void Update() 
+    {   
+
+    }
+
 }
