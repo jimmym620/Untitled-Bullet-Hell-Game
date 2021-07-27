@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3232726480732157722}
   - component: {fileID: 947186238}
   - component: {fileID: 3974996303175391603}
+  - component: {fileID: 587531760715300349}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -69,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  deathSound: {fileID: 8300000, guid: 4f499c1f485a03b4c9efd734e440b83e, type: 3}
+  deathSound: {fileID: 8300000, guid: c0023b0169b0d30419879771eaf908ad, type: 3}
   deathAnim: {fileID: 3974996303175391603}
 --- !u!61 &3232726480732157722
 BoxCollider2D:
@@ -166,3 +167,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &587531760715300349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232726480732157712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbe6ecf037c7514aae305faaecd79d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

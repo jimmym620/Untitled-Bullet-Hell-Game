@@ -8,6 +8,7 @@ public class BulletBehaviour : MonoBehaviour
     public Rigidbody2D rb;
     public int damage = 40;
     public AudioClip hitmarker;
+    public AudioClip enemyHitmarker;
     private float rightSide = 10;
 
 
@@ -33,12 +34,18 @@ public class BulletBehaviour : MonoBehaviour
         // if (enemy != null){
         //     enemy.TakeDamage(damage);
         // }
+
+        if(hitInfo.gameObject.tag == "Enemy"){
+            AudioSource.PlayClipAtPoint(enemyHitmarker, transform.position);
+        }
+        else{
+            AudioSource.PlayClipAtPoint(hitmarker, transform.position);
+
+        }
         
         IEntity damageable = hitInfo.GetComponent<IEntity>();
         if (damageable != null){
             damageable.TakeDamage(damage);
-            AudioSource.PlayClipAtPoint(hitmarker, transform.position);
-
         }
         Destroy(gameObject);
         

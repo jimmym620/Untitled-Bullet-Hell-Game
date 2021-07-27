@@ -122,6 +122,7 @@ MonoBehaviour:
   rb: {fileID: 7114136538207590316}
   damage: 40
   hitmarker: {fileID: 8300000, guid: 178de40df15e8de4fb19147045ade830, type: 3}
+  enemyHitmarker: {fileID: 8300000, guid: d0e1f3ede5b91f547a4709b8745fb0b6, type: 3}
 --- !u!61 &5864730496512174955
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour, IEntity
         }
     }
 
+
     // Update UI displays when enemy dies
     // Destroy the game object on death
     public void Die()
