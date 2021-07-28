@@ -35,8 +35,8 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
         UI_SoundManager.Instance.playQuitSound();
+        Application.Quit();
     }
 
     public void ShowOptionsMenu() 

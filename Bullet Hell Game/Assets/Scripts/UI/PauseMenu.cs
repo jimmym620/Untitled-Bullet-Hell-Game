@@ -2,20 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class PauseMenu : MonoBehaviour
 {
     
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    public AudioClip selectSound;
-    public AudioClip quitSound;
-    private AudioSource AS;
 
+    public Button resumeButton, menuButton, quitButton;
 
     void Start()
     {
-        AS = GetComponent<AudioSource>();
+
+        Button resumeBTN = resumeButton.GetComponent<Button>();
+        resumeBTN.onClick.AddListener(Resume);
+
+        Button menuBTN = menuButton.GetComponent<Button>();
+        menuBTN.onClick.AddListener(LoadMenu);
+
+        Button quitBTN = quitButton.GetComponent<Button>();
+        quitBTN.onClick.AddListener(QuitGame);
+
+
+
+
+
     }
     // Update is called once per frame
     void Update()
@@ -38,6 +51,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        UI_SoundManager.Instance.playSelectSound();
     }
 
     void Pause() 
@@ -52,21 +66,14 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
         GameIsPaused = false;
+        UI_SoundManager.Instance.playCancelSound();
         UI_SoundManager.Instance.playMenuMusic();
     }
 
     public void QuitGame() 
     {
+        UI_SoundManager.Instance.playQuitSound();
         Application.Quit();
     }
 
-    public void playSelectSound()
-    {
-        AS.PlayOneShot(selectSound);
-    }
-    
-    public void playQuitSound()
-    {
-        AS.PlayOneShot(quitSound);
-    }
 }

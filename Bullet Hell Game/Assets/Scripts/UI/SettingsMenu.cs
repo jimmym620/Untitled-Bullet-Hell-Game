@@ -13,6 +13,14 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
 
+    public Slider volumeSlider;
+    public Dropdown GraphicsDropdown, resDropdown;
+    public Toggle fullscreenToggle;
+    public Button BackButton;
+    public GameObject MainMenu;
+    public GameObject OptionsMenu;
+
+
     Resolution[] resolutions;
     private void Start()
     {
@@ -36,28 +44,54 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        Slider volSlider = volumeSlider.GetComponent<Slider>();
+        volSlider.onValueChanged.AddListener(delegate { SetVolume(volSlider.value); });
+
+        Dropdown graphicsDropdown = GraphicsDropdown.GetComponent<Dropdown>();
+        graphicsDropdown.onValueChanged.AddListener(delegate { SetQuality(graphicsDropdown.value); });
+
+        Toggle fsToggle = fullscreenToggle.GetComponent<Toggle>();
+        fsToggle.onValueChanged.AddListener(delegate { SetFullscreen(fsToggle.isOn); });
+
+        Dropdown resolDropdown = resDropdown.GetComponent<Dropdown>();
+        resolDropdown.onValueChanged.AddListener(delegate { SetResolution(resolDropdown.value); });
+
+        Button backBTN = BackButton.GetComponent<Button>();
+        backBTN.onClick.AddListener(backButtonPressed);
     }
 
 
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("Volume", volume);
+        UI_SoundManager.Instance.playSelectSound();
     }
 
     public void SetQuality (int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        UI_SoundManager.Instance.playSelectSound();
     }
 
 
     public void SetFullscreen (bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        UI_SoundManager.Instance.playSelectSound();
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        UI_SoundManager.Instance.playSelectSound();
+    }
+
+    public void backButtonPressed() 
+    {
+        MainMenu.SetActive(true);
+        OptionsMenu.SetActive(false);
+        UI_SoundManager.Instance.playCancelSound();
     }
 }
