@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour, IEntity
     public float health = 100;
     public AudioClip deathSound;
     private bool deathPlayed = false;
-    public float moveSpeed;
-    private Rigidbody2D rb;
+    public float moveSpeed = 1;
+    public Rigidbody2D rb;
     private float DirY;
     public float yBoundaries = 1.7f;
 

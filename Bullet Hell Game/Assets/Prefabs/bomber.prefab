@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8607378897778565598}
   - component: {fileID: 8607378897778565599}
   - component: {fileID: 8607378897778565596}
-  - component: {fileID: 8607378897778565592}
   - component: {fileID: 8607378897778565595}
+  - component: {fileID: 2084805816}
+  - component: {fileID: 6432585422051404654}
   m_Layer: 0
   m_Name: bomber
   m_TagString: Untagged
@@ -122,23 +123,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16
---- !u!114 &8607378897778565592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8607378897778565597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6f1467d3cdda124887fb1879b5f7e57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  deathSound: {fileID: 8300000, guid: c0023b0169b0d30419879771eaf908ad, type: 3}
-  moveSpeed: 0
-  yBoundaries: 1.7
-  deathAnim: {fileID: 8607378897778565595}
 --- !u!95 &8607378897778565595
 Animator:
   serializedVersion: 3
@@ -158,3 +142,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2084805816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607378897778565597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f183a87c4a1954592f57ab9813d5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  deathSound: {fileID: 8300000, guid: c0023b0169b0d30419879771eaf908ad, type: 3}
+  moveSpeed: 1
+  rb: {fileID: 8607378897778565599}
+  yBoundaries: 1.7
+  deathAnim: {fileID: 8607378897778565595}
+  followSpeed: 1
+--- !u!114 &6432585422051404654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607378897778565597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff57da26c4de90144a5ff83f8fa70975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
