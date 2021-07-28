@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 438073752128932923}
   - component: {fileID: 438073752128932900}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: UI_AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   selectSound: {fileID: 438073752128932901}
   cancelSound: {fileID: 438073752128932900}
   quitSound: {fileID: 438073752128932923}
+  menuMusic: {fileID: 438073752128932902}
 --- !u!82 &438073752128932902
 AudioSource:
   m_ObjectHideFlags: 0
@@ -62,7 +63,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d65cc3bed90c7f54987a8f237af0d9c2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

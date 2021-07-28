@@ -6,33 +6,32 @@ using UnityEngine;
 
 public class UI_SoundManager : MonoBehaviour
 {
-    public AudioSource selectSound, cancelSound, quitSound;
+    public AudioSource selectSound, cancelSound, quitSound, menuMusic;
 
+    //Singleton
+    public static UI_SoundManager Instance = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    private static UI_SoundManager instance = null;
-    public static UI_SoundManager Instance
-    {
-        get { return instance; }
+        playMenuMusic();
     }
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        // If there is not already an instance of SoundManager, set it to this.
+        if (Instance == null)
         {
-            Destroy(this.gameObject);
-            return;
+            Instance = this;
         }
-        else
+        //If an instance already exists, destroy whatever this object is to enforce the singleton.
+        else if (Instance != this)
         {
-            instance = this;
+            Destroy(gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
+
+        //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
+        DontDestroyOnLoad(gameObject);
     }
     // Update is called once per frame
     void Update()
@@ -53,5 +52,15 @@ public class UI_SoundManager : MonoBehaviour
     public void playQuitSound()
     {
         quitSound.Play();
+    }
+
+    public void playMenuMusic()
+    {
+        menuMusic.Play();
+    }
+
+    public void stopMenuMusic()
+    {
+        menuMusic.Stop();
     }
 }
