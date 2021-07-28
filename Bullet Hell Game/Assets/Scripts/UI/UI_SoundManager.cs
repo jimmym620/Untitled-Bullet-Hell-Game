@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class UI_SoundManager : MonoBehaviour
 {
-    public AudioSource selectSound, cancelSound, quitSound, menuMusic;
+    public AudioSource selectSound, cancelSound, quitSound, menuMusic, L1Music;
 
     //Singleton
     public static UI_SoundManager Instance = null;
@@ -62,5 +62,15 @@ public class UI_SoundManager : MonoBehaviour
     public void stopMenuMusic()
     {
         menuMusic.Stop();
+    }
+
+    public void playL1Music()
+    {
+        L1Music.Play();
+    }
+
+    public void stopL1Music() 
+    {
+        L1Music.Stop();
     }
 }

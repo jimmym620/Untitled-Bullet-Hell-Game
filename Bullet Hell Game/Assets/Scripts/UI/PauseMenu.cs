@@ -68,6 +68,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         UI_SoundManager.Instance.playCancelSound();
         UI_SoundManager.Instance.playMenuMusic();
+        UI_SoundManager.Instance.stopL1Music();
     }
 
     public void QuitGame() 

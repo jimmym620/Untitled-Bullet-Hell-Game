@@ -30,6 +30,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         UI_SoundManager.Instance.stopMenuMusic();
         UI_SoundManager.Instance.playSelectSound();
+        UI_SoundManager.Instance.playL1Music();
 
     }
 
