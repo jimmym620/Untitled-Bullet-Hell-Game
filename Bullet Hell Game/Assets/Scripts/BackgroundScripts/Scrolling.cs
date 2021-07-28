@@ -5,6 +5,7 @@ using UnityEngine;
 public class Scrolling : MonoBehaviour
 {
     private Rigidbody2D rb2d;
+    public float scrollSpeed;
 
     
 
@@ -15,7 +16,8 @@ public class Scrolling : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
 
         //Start the object moving.
-        rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
+        // rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
+        rb2d.velocity = new Vector2(-scrollSpeed, 0);
     }
 
     void Update()
