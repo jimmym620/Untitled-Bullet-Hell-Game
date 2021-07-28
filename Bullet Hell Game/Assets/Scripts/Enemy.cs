@@ -8,9 +8,18 @@ public class Enemy : MonoBehaviour, IEntity
     public float health = 100;
     public AudioClip deathSound;
     private bool deathPlayed = false;
+    public float moveSpeed;
+    private Rigidbody2D rb;
+    private float DirY;
+    public float yBoundaries = 1.7f;
 
 
     public Animator deathAnim;
+
+    void Start() {
+        rb = GetComponent<Rigidbody2D>();
+        DirY = -1f;
+    }
 
     // If health at 0, enemy dies
     public void TakeDamage(float amount)
@@ -34,8 +43,6 @@ public class Enemy : MonoBehaviour, IEntity
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
             deathPlayed = true;
         }
-
-
     
     }
 
@@ -43,5 +50,17 @@ public class Enemy : MonoBehaviour, IEntity
     {   
 
     }
+
+    void FixedUpdate() {
+        rb.velocity = new Vector2(rb.velocity.x, DirY * moveSpeed );
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Border"){
+            DirY *= -1f;
+        }
+        
+    }
+
 
 }

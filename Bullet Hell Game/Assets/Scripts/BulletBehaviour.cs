@@ -38,7 +38,7 @@ public class BulletBehaviour : MonoBehaviour
         if(hitInfo.gameObject.tag == "Enemy"){
             AudioSource.PlayClipAtPoint(enemyHitmarker, transform.position);
         }
-        else{
+        else if(hitInfo.gameObject.tag != "Border"){
             AudioSource.PlayClipAtPoint(hitmarker, transform.position);
 
         }

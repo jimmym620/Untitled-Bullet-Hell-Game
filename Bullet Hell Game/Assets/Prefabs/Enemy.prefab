@@ -71,6 +71,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   deathSound: {fileID: 8300000, guid: c0023b0169b0d30419879771eaf908ad, type: 3}
+  moveSpeed: 1
+  yBoundaries: 1.7
   deathAnim: {fileID: 3974996303175391603}
 --- !u!61 &3232726480732157722
 BoxCollider2D:
