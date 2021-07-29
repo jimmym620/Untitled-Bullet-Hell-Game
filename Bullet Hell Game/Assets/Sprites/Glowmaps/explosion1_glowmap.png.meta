@@ -1,54 +1,42 @@
 fileFormatVersion: 2
-guid: 8338b18d4befff747a63a9381360b04c
+guid: 86a42c912f42b7f46ab234125cbbe9d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 906707699435275403
-    second: enemy_explosion_0
+      213: 767841002942905860
+    second: explosion1_glowmap_0
   - first:
-      213: -6812762351698887852
-    second: enemy_explosion_1
+      213: 2729000655596752672
+    second: explosion1_glowmap_1
   - first:
-      213: 2494433429999476171
-    second: enemy_explosion_2
+      213: -8275423326225462291
+    second: explosion1_glowmap_2
   - first:
-      213: -2047765259811225818
-    second: enemy_explosion_3
+      213: -8676207799640485199
+    second: explosion1_glowmap_3
   - first:
-      213: 6296021022248510997
-    second: enemy_explosion_4
+      213: 3174367440693434341
+    second: explosion1_glowmap_4
   - first:
-      213: -6872755899277351760
-    second: enemy_explosion_5
+      213: 5006251542244716477
+    second: explosion1_glowmap_5
   - first:
-      213: 4700142098030303570
-    second: enemy_explosion_6
+      213: 6638600891975126179
+    second: explosion1_glowmap_6
   - first:
-      213: -6041437317651680792
-    second: enemy_explosion_7
+      213: -7422537411247765542
+    second: explosion1_glowmap_7
   - first:
-      213: -5637739317731873800
-    second: enemy_explosion_8
+      213: -5662814693635508409
+    second: explosion1_glowmap_8
   - first:
-      213: -7560446765297644811
-    second: enemy_explosion_9
-  - first:
-      213: 262754915121996798
-    second: enemy_explosion_10
-  - first:
-      213: -6633689651385146091
-    second: enemy_explosion_11
-  - first:
-      213: -1569035852415659640
-    second: enemy_explosion_12
-  - first:
-      213: -1172625229487087985
-    second: enemy_explosion_13
+      213: 8961458665624522051
+    second: explosion1_glowmap_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -93,7 +81,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -106,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_explosion_0
+      name: explosion1_glowmap_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,20 +125,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8483f349d5459c00800000000000000
-      internalID: 906707699435275403
+      spriteID: 40e3460f25be7aa00800000000000000
+      internalID: 767841002942905860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_1
+      name: explosion1_glowmap_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,20 +146,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45b35d79cb43471a0800000000000000
-      internalID: -6812762351698887852
+      spriteID: 02f07ac23ab5fd520800000000000000
+      internalID: 2729000655596752672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_2
+      name: explosion1_glowmap_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,20 +167,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcd5afe0df10e9220800000000000000
-      internalID: 2494433429999476171
+      spriteID: deb8952745ac72d80800000000000000
+      internalID: -8275423326225462291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_3
+      name: explosion1_glowmap_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,20 +188,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62ff0918850e493e0800000000000000
-      internalID: -2047765259811225818
+      spriteID: 1b294f889fae79780800000000000000
+      internalID: -8676207799640485199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_4
+      name: explosion1_glowmap_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,20 +209,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 516a38113c5ff5750800000000000000
-      internalID: 6296021022248510997
+      spriteID: 5e719196e5e9d0c20800000000000000
+      internalID: 3174367440693434341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_5
+      name: explosion1_glowmap_5
       rect:
         serializedVersion: 2
         x: 0
@@ -242,20 +230,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b46a9b4ce01f90a0800000000000000
-      internalID: -6872755899277351760
+      spriteID: dbf6fbfd047c97540800000000000000
+      internalID: 5006251542244716477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_6
+      name: explosion1_glowmap_6
       rect:
         serializedVersion: 2
         x: 32
@@ -263,20 +251,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25994f2f5524a3140800000000000000
-      internalID: 4700142098030303570
+      spriteID: 3acc4c3a65c012c50800000000000000
+      internalID: 6638600891975126179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_7
+      name: explosion1_glowmap_7
       rect:
         serializedVersion: 2
         x: 64
@@ -284,20 +272,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e1359cb4c0882ca0800000000000000
-      internalID: -6041437317651680792
+      spriteID: ad7878efc89ddf890800000000000000
+      internalID: -7422537411247765542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_8
+      name: explosion1_glowmap_8
       rect:
         serializedVersion: 2
         x: 96
@@ -305,20 +293,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fba656e5f9b2c1b0800000000000000
-      internalID: -5637739317731873800
+      spriteID: 7473efcf904a961b0800000000000000
+      internalID: -5662814693635508409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_explosion_9
+      name: explosion1_glowmap_9
       rect:
         serializedVersion: 2
         x: 128
@@ -326,14 +314,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5face2359b5e31790800000000000000
-      internalID: -7560446765297644811
+      spriteID: 34d45e13d2f7d5c70800000000000000
+      internalID: 8961458665624522051
       vertices: []
       indices: 
       edges: []
@@ -347,9 +335,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 86a42c912f42b7f46ab234125cbbe9d8, type: 3}
-      name: _Emission
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
