@@ -7,13 +7,17 @@ public class SpawnClouds : MonoBehaviour
     public GameObject cloudPrefab;
     public float cloudYPosition;
     public int maxCloudCount;
-    private int cloudCount = 0;
 
     void FixedUpdate()
     {
         // StartCoroutine(waitRandomSeconds());
         // spawnCloud();
-        Invoke("spawnCloud", Random.Range(3, 15));
+        if (GameObject.FindGameObjectsWithTag("Cloud").Length < maxCloudCount)
+        {
+            spawnCloud();
+
+        }
+
 
     }
 
@@ -25,19 +29,23 @@ public class SpawnClouds : MonoBehaviour
 
     float choosePositionY() 
     {
-        float y = Random.Range(1, (float)1.9);
+        float y = Random.Range((float)0.6, (float)1.9);
         return y;
     }
 
+    float choosePositionZ()
+    {
+        float z = Random.Range(0, 10);
+        return z;
+    }
 
 
     void spawnCloud()
     {
-        while(cloudCount < maxCloudCount){
-            Instantiate(cloudPrefab, new Vector2(choosePositionX(), choosePositionY()), transform.rotation);
-            cloudCount++;
+    
+        Instantiate(cloudPrefab, new Vector3(choosePositionX(), choosePositionY(), choosePositionZ()), transform.rotation);
+        
 
-        }
     }
     
     IEnumerator waitRandomSeconds()
