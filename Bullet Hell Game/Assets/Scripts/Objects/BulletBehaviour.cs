@@ -10,6 +10,7 @@ public class BulletBehaviour : MonoBehaviour
     public AudioClip hitmarker;
     public AudioClip enemyHitmarker;
     private float rightSide = 10;
+    public Animator hitmarkerAnimation;
 
 
     // Start is called before the first frame update
@@ -37,6 +38,7 @@ public class BulletBehaviour : MonoBehaviour
 
         if(hitInfo.gameObject.tag == "Enemy"){
             AudioSource.PlayClipAtPoint(enemyHitmarker, transform.position);
+
         }
         else if(hitInfo.gameObject.tag != "Border"){
             AudioSource.PlayClipAtPoint(hitmarker, transform.position);
@@ -46,8 +48,12 @@ public class BulletBehaviour : MonoBehaviour
         IEntity damageable = hitInfo.GetComponent<IEntity>();
         if (damageable != null){
             damageable.TakeDamage(damage);
+            rb.velocity = Vector2.zero;
+            hitmarkerAnimation.SetTrigger("hit");
+            Destroy(gameObject, hitmarkerAnimation.GetCurrentAnimatorStateInfo(0).length /3);
+
         }
-        Destroy(gameObject);
+        // Destroy(gameObject);
         
         // Instantiate(impactEffect, transform.position, transform.rotation);
         

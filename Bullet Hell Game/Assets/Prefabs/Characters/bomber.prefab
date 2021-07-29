@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6432585422051404654}
   m_Layer: 0
   m_Name: bomber
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,3 +173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff57da26c4de90144a5ff83f8fa70975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bomberDamageNoise: {fileID: 0}
