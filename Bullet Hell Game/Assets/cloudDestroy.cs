@@ -14,7 +14,7 @@ public class cloudDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((transform.position.x < -2) || (transform.position.y > 2)){
+        if((transform.position.x < -5) || (transform.position.y > 2.5)){
             Destroy(gameObject);
         }
 
