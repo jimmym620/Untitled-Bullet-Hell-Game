@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4460052236584540211}
   - component: {fileID: 686078333}
   - component: {fileID: 3738261303802216569}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,6 @@ MonoBehaviour:
   speed: 7
   rb: {fileID: 7114136538207590316}
   damage: 40
-  hitmarker: {fileID: 8300000, guid: 178de40df15e8de4fb19147045ade830, type: 3}
   enemyHitmarker: {fileID: 8300000, guid: d0e1f3ede5b91f547a4709b8745fb0b6, type: 3}
   hitmarkerAnimation: {fileID: 686078333}
 --- !u!61 &5864730496512174955
@@ -279,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 2ed40a9f16148a940a05361ece5d49a6, type: 2}
+  sharedProfile: {fileID: 0}
   isGlobal: 0
   blendDistance: 0
   weight: 1

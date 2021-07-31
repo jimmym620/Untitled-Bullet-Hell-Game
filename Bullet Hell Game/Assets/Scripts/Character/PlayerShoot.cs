@@ -57,6 +57,14 @@ public class PlayerShoot : MonoBehaviour
             Shoot();
         }
 
+        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !PauseMenu.GameIsPaused)
+        {
+            FirePoint.GetComponent<Animator>().SetTrigger("Shooting");
+            nextTimeToFire = Time.time + 1 / fireRate;
+            gunshotSound.Play();
+            Shoot();
+        }
+
         // Press R to reload
         if(Input.GetKey("r")){
             StartCoroutine(Reload());

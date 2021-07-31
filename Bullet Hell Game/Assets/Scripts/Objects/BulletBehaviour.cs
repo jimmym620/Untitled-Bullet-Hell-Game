@@ -16,6 +16,8 @@ public class BulletBehaviour : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
+
+
     }
 
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class BulletBehaviour : MonoBehaviour
             Destroy(gameObject, hitmarkerAnimation.GetCurrentAnimatorStateInfo(0).length /3);
 
         }
-        // Destroy(gameObject);
+        Destroy(gameObject, 7f);
         
         // Instantiate(impactEffect, transform.position, transform.rotation);
         
