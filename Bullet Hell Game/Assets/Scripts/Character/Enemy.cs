@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour, IEntity
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+    
         DirY = -1f;
     }
 
@@ -39,8 +40,10 @@ public class Enemy : MonoBehaviour, IEntity
     {
         deathAnim.SetTrigger("Dead");
         Destroy(gameObject, deathAnim.GetCurrentAnimatorStateInfo(0).length);
+        gameObject.GetComponent<Collider2D>().enabled = false;
         if(!deathPlayed){
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            rb.velocity = Vector2.zero;
             deathPlayed = true;
         }
     
@@ -51,6 +54,7 @@ public class Enemy : MonoBehaviour, IEntity
 
     }
 
+    //Patrolling up and down
     void FixedUpdate() {
         rb.velocity = new Vector2(rb.velocity.x, DirY * moveSpeed );
     }

@@ -111,6 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8352712462207455717}
   - component: {fileID: 8352712462207455739}
+  - component: {fileID: 1223342391729283175}
   - component: {fileID: 8352712462207455738}
   - component: {fileID: 8352712462207455743}
   - component: {fileID: 8352712462207455742}
@@ -157,6 +158,19 @@ MonoBehaviour:
   yRangeBottom: 1.7
   xRange: 3.2
   xRangeRight: 3
+--- !u!114 &1223342391729283175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352712462207455716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9836992d7dba9f749a6c193a0585b1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &8352712462207455738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +188,7 @@ MonoBehaviour:
     type: 3}
   gunshotSound: {fileID: 8352712462207455737}
   reloadSound: {fileID: 8352712462207455736}
-  fireRate: 6
+  fireRate: 3
   FirePoint: {fileID: 8352712461734200570}
   maxAmmo: 30
   reloadTime: 3
