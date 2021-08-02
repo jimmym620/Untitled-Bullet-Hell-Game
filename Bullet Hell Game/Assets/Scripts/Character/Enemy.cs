@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour, IEntity
         health -= amount;
         if (health <= 0f)
         {
-            
             Die();
         }
     }

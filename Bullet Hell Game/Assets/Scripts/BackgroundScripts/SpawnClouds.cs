@@ -7,6 +7,7 @@ public class SpawnClouds : MonoBehaviour
     public GameObject[] cloudPrefab;
     public float cloudYPosition;
     public int maxCloudCount;
+    public Transform CloudObject;
 
     void FixedUpdate()
     {
@@ -22,7 +23,7 @@ public class SpawnClouds : MonoBehaviour
 
     float choosePositionX() 
     {
-        float x = Random.Range(9, 18);
+        float x = Random.Range(6, 25);
         return x;
     }
 
@@ -42,8 +43,8 @@ public class SpawnClouds : MonoBehaviour
     void spawnCloud()
     {
     
-        Instantiate(cloudPrefab[0], new Vector3(choosePositionX(), choosePositionY(), choosePositionZ()), transform.rotation);
-        
+        GameObject cloud= Instantiate(cloudPrefab[0], new Vector3(choosePositionX(), choosePositionY(), choosePositionZ()), transform.rotation);
+        cloud.transform.SetParent(CloudObject);
 
     }
     

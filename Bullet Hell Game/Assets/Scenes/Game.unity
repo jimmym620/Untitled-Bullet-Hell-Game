@@ -1239,6 +1239,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3ef0febad5b7a74097f0bb6dc3ff744, type: 3}
+--- !u!1 &940420451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940420452}
+  m_Layer: 8
+  m_Name: CloudsObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &940420452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940420451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1076870330}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1076870329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,6 +1298,7 @@ Transform:
   m_Children:
   - {fileID: 2079253396}
   - {fileID: 1940491961}
+  - {fileID: 940420452}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3318,6 +3349,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510446772945086550, guid: d180bdfc44e6f5140a21f3559efea773,
+        type: 3}
+      propertyPath: CloudObject
+      value: 
+      objectReference: {fileID: 940420452}
+    - target: {fileID: 3510446772945086550, guid: d180bdfc44e6f5140a21f3559efea773,
+        type: 3}
+      propertyPath: maxCloudCount
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d180bdfc44e6f5140a21f3559efea773, type: 3}

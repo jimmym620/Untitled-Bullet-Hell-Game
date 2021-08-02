@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
+
 
 
 
@@ -14,6 +16,8 @@ public class SettingsMenu : MonoBehaviour
     public Dropdown resolutionDropdown;
 
     public Slider volumeSlider;
+    public TextMeshProUGUI volumeValue;
+
     public Dropdown GraphicsDropdown, resDropdown;
     public Toggle fullscreenToggle;
     public Button BackButton;
@@ -24,6 +28,12 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
     private void Start()
     {
+        //Default master volume
+        // volumeSlider.value = PlayerPrefs.GetFloat("Volume", 0.5f);
+        // volumeValue.text = Mathf.Round(volumeSlider.value * 100).ToString();
+        SetVolume(0.5f);
+
+        //Default resolutions
         int currentResolutionIndex = 0;
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
 
@@ -64,7 +74,12 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        //https://gamedevbeginner.com/the-right-way-to-make-a-volume-slider-in-unity-using-logarithmic-conversion/
+        audioMixer.SetFloat("Volume", Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("Volume", volume);
+        volumeValue.text = Mathf.Round(volume * 100) + "%";
+
+
     }
 
     public void SetQuality (int qualityIndex)

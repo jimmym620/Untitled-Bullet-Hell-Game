@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cloudDestroy : MonoBehaviour
+public class cloudBehaviour : MonoBehaviour
 {
     
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class cloudDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((transform.position.x < -5) || (transform.position.y > 2.5)){
+        if((transform.position.x < -10) || (transform.position.y > 2.5)){
             Destroy(gameObject);
         }
 
