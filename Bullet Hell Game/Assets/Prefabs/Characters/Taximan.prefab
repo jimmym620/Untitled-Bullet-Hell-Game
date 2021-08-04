@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3232726480732157713}
   - component: {fileID: 3232726480732157716}
-  - component: {fileID: 3232726480732157717}
   - component: {fileID: 3232726480732157722}
   - component: {fileID: 947186238}
   - component: {fileID: 3974996303175391603}
-  - component: {fileID: 587531760715300349}
+  - component: {fileID: -1312018494072605561}
+  - component: {fileID: 3219063817761906607}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Taximan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.06, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 7753338386905744747}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,7 +49,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -57,24 +58,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3232726480732157717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3232726480732157712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6f1467d3cdda124887fb1879b5f7e57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  deathSound: {fileID: 8300000, guid: c0023b0169b0d30419879771eaf908ad, type: 3}
-  moveSpeed: 1
-  rb: {fileID: 0}
-  yBoundaries: 1.7
-  deathAnim: {fileID: 3974996303175391603}
 --- !u!61 &3232726480732157722
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,7 +153,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &587531760715300349
+--- !u!114 &-1312018494072605561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232726480732157712}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf3c1ef0ad07b5418fcde0bde7b823e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 0.25
+--- !u!114 &3219063817761906607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,6 +175,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 3232726480732157712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cbe6ecf037c7514aae305faaecd79d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 200c50cd4a99d7c4c99aa7b7a69b78ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  deathSound: {fileID: 8300000, guid: c0023b0169b0d30419879771eaf908ad, type: 3}
+  moveSpeed: 1
+  rb: {fileID: 3232726480732157716}
+  yBoundaries: 1.7
+  deathAnim: {fileID: 3974996303175391603}
+  bulletPrefab: {fileID: 7114136538207590317, guid: 1cf14408e1d3d1645a120425e171273c,
+    type: 3}
+  firePoint: {fileID: 7753338386905744747}
+--- !u!1 &7281620705463557059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7753338386905744747}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7753338386905744747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7281620705463557059}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.412, y: -0.061, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 3232726480732157713}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}

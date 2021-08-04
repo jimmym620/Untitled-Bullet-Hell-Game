@@ -1,20 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //https://www.youtube.com/watch?v=i0coh71r-v8
 
 public class UI_SoundManager : MonoBehaviour
 {
-    public AudioSource selectSound, cancelSound, quitSound, menuMusic, L1Music;
+    public AudioSource selectSound, cancelSound, quitSound, menuMusic, L1Music, playerDeathSound;
 
     //Singleton
     public static UI_SoundManager Instance = null;
+    Scene currentScene;
 
     // Start is called before the first frame update
     void Start()
     {
-        playMenuMusic();
+        string sceneName = currentScene.name;
+        if (sceneName == "Menu"){
+            playMenuMusic();
+        }
+
+        // playMenuMusic();
+        currentScene = SceneManager.GetActiveScene();
+
     }
 
     void Awake()
@@ -36,7 +45,6 @@ public class UI_SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void playSelectSound()
@@ -72,5 +80,9 @@ public class UI_SoundManager : MonoBehaviour
     public void stopL1Music() 
     {
         L1Music.Stop();
+    }
+
+    public void playPlayerDeathSound(){
+        playerDeathSound.Play();
     }
 }

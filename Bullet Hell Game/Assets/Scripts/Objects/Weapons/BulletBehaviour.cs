@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 7f;
     public Rigidbody2D rb;
     public int damage = 40;
     public AudioClip enemyHitmarker;
@@ -15,6 +15,7 @@ public class BulletBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rb.velocity = transform.right * speed;
 
 

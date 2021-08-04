@@ -54,7 +54,7 @@ public class PauseMenu : MonoBehaviour
         UI_SoundManager.Instance.playSelectSound();
     }
 
-    void Pause() 
+    public void Pause() 
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

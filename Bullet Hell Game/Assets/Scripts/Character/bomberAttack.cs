@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bomberDamage : MonoBehaviour
+public class bomberAttack : MonoBehaviour
 {
     public AudioClip bomberDamageNoise;
     private Rigidbody2D rb;
