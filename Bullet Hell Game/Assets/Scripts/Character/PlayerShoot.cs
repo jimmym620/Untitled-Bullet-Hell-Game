@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
-
+    ObjectPooler objectPooler;
     public Transform firePoint;
-    public GameObject bulletPrefab;
+    
     public AudioSource gunshotSound;
     public AudioSource reloadSound;
     
@@ -30,6 +30,7 @@ public class PlayerShoot : MonoBehaviour
     {
         //beginning reload state
         currentAmmo = maxAmmo;
+        objectPooler = ObjectPooler.Instance;
 
     }
 
@@ -77,9 +78,10 @@ public class PlayerShoot : MonoBehaviour
     void Shoot()
     {
         currentAmmo--;
-        
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-       
+
+        // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        objectPooler.SpawnFromPool("Bullet", firePoint.position, firePoint.rotation);
+
 
     }
 

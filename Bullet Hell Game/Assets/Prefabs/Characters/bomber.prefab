@@ -161,7 +161,7 @@ MonoBehaviour:
   yBoundaries: 1.7
   deathAnim: {fileID: 8607378897778565595}
   followSpeed: 1
-  damage: 100
+  damage: 30
   proximitySound: {fileID: 5234377322769137486}
 --- !u!82 &5234377322769137486
 AudioSource:

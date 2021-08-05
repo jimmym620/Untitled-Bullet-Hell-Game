@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnClouds : MonoBehaviour
 {
+    ObjectPooler objectPooler;
     public GameObject[] cloudPrefab;
     public float cloudYPosition;
     public int maxCloudCount;
@@ -21,13 +22,18 @@ public class SpawnClouds : MonoBehaviour
 
     }
 
-    float choosePositionX() 
+    void Start()
+    {
+        objectPooler = ObjectPooler.Instance;
+    }
+
+    float choosePositionX()
     {
         float x = Random.Range(6, 25);
         return x;
     }
 
-    float choosePositionY() 
+    float choosePositionY()
     {
         float y = Random.Range((float)0.6, (float)1.9);
         return y;
@@ -42,12 +48,13 @@ public class SpawnClouds : MonoBehaviour
 
     void spawnCloud()
     {
-    
-        GameObject cloud= Instantiate(cloudPrefab[0], new Vector3(choosePositionX(), choosePositionY(), choosePositionZ()), transform.rotation);
+
+        // GameObject cloud = Instantiate(cloudPrefab[0], new Vector3(choosePositionX(), choosePositionY(), choosePositionZ()), transform.rotation);
+        GameObject cloud = objectPooler.SpawnFromPool("Cloud", new Vector3(choosePositionX(), choosePositionY(), choosePositionZ()), transform.rotation);
         cloud.transform.SetParent(CloudObject);
 
     }
-    
+
     IEnumerator waitRandomSeconds()
     {
         int wait_time = Random.Range(3, 15);

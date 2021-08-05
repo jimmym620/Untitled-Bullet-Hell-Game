@@ -36,7 +36,8 @@ public class Enemy : MonoBehaviour, IEntity
     public void Die()
     {
         deathAnim.SetTrigger("Dead");
-        Destroy(gameObject, deathAnim.GetCurrentAnimatorStateInfo(0).length);
+        // Destroy(gameObject, deathAnim.GetCurrentAnimatorStateInfo(0).length);
+        gameObject.SetActive(false);
         gameObject.GetComponent<Collider2D>().enabled = false;
         if(!deathPlayed){
             AudioSource.PlayClipAtPoint(deathSound, transform.position);

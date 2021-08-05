@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class TaximanAttack : Enemy
 {
-    public GameObject bulletPrefab;
+    ObjectPooler objectPooler;
     public Transform firePoint;
     private float DirY;
     private bool enteredScene;
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
         // StartCoroutine(wait(3));
         DirY = -1f;
-        
+        objectPooler = ObjectPooler.Instance;
+
     }
 
     // Update is called once per frame
@@ -28,7 +29,9 @@ public class TaximanAttack : Enemy
     {
         if (gameObject.transform.position.x < 3){
             wait(3);
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            objectPooler.SpawnFromPool("Bullet_Red", firePoint.position, firePoint.rotation);
+
         }
         
     }

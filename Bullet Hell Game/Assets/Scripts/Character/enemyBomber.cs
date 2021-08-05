@@ -44,12 +44,12 @@ public class enemyBomber : Enemy
     void OnTriggerEnter2D(Collider2D other)
     {
         IEntity damageable = other.GetComponent<IEntity>();
-        if (damageable != null)
+        if (damageable != null && other.gameObject.tag == "Player")
         {
             damageable.TakeDamage(damage);
             isDead = true;
             base.Die();
-            Destroy(gameObject, 3f);
+            gameObject.SetActive(false);
         }
 
     }

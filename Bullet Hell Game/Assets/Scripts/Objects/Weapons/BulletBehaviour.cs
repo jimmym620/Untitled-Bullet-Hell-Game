@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehaviour : MonoBehaviour
+public class BulletBehaviour : MonoBehaviour, IPooledObject
 {
     public float speed = 7f;
     public Rigidbody2D rb;
@@ -13,7 +13,7 @@ public class BulletBehaviour : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public void onObjectSpawn()
     {
         
         rb.velocity = transform.right * speed;
@@ -26,7 +26,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (transform.position.x > rightSide)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
     }
@@ -52,10 +52,11 @@ public class BulletBehaviour : MonoBehaviour
             damageable.TakeDamage(damage);
             rb.velocity = Vector2.zero;
             hitmarkerAnimation.SetTrigger("hit");
-            Destroy(gameObject, hitmarkerAnimation.GetCurrentAnimatorStateInfo(0).length /3);
+            // Destroy(gameObject, hitmarkerAnimation.GetCurrentAnimatorStateInfo(0).length /3);
+            gameObject.SetActive(false);
 
         }
-        Destroy(gameObject, 7f);
+        // Destroy(gameObject, 7f);
         
         // Instantiate(impactEffect, transform.position, transform.rotation);
         

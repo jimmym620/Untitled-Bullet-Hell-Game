@@ -16,13 +16,13 @@ public class UI_SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         if (sceneName == "Menu"){
             playMenuMusic();
         }
 
-        // playMenuMusic();
-        currentScene = SceneManager.GetActiveScene();
+        
 
     }
 

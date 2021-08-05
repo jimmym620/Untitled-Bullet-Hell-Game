@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3232726480732157722}
   - component: {fileID: 947186238}
   - component: {fileID: 3974996303175391603}
-  - component: {fileID: -1312018494072605561}
   - component: {fileID: 3219063817761906607}
   m_Layer: 0
   m_Name: Taximan
@@ -153,19 +152,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-1312018494072605561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3232726480732157712}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faf3c1ef0ad07b5418fcde0bde7b823e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollSpeed: 0.25
 --- !u!114 &3219063817761906607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,8 +170,6 @@ MonoBehaviour:
   rb: {fileID: 3232726480732157716}
   yBoundaries: 1.7
   deathAnim: {fileID: 3974996303175391603}
-  bulletPrefab: {fileID: 7114136538207590317, guid: 1cf14408e1d3d1645a120425e171273c,
-    type: 3}
   firePoint: {fileID: 7753338386905744747}
 --- !u!1 &7281620705463557059
 GameObject:
