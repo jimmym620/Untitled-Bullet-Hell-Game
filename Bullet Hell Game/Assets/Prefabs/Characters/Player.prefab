@@ -173,7 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   HP_Display: {fileID: 0}
-  playerDeathSound: {fileID: 4389014433475710048}
 --- !u!114 &8352712462207455738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,8 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8352712461734200571}
-  bulletPrefab: {fileID: 7114136538207590317, guid: e858fd58815cc3a40b3298027aea5ab8,
-    type: 3}
   gunshotSound: {fileID: 8352712462207455737}
   reloadSound: {fileID: 8352712462207455736}
   fireRate: 3

@@ -2,21 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletBehaviour : MonoBehaviour
+public class EnemyBulletBehaviour : BulletBehaviour
 {
-    public float speed = 7f;
-    public Rigidbody2D rb;
-    public int damage = 40;
-    public AudioClip enemyHitmarker;
-    private float leftSide = 10;
-    public Animator hitmarkerAnimation;
-
 
     // Start is called before the first frame update
     void Start()
     {
 
-        rb.velocity = transform.right * speed;
 
 
     }
@@ -24,10 +16,7 @@ public class EnemyBulletBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > leftSide)
-        {
-            Destroy(gameObject);
-        }
+
 
     }
 
@@ -49,7 +38,7 @@ public class EnemyBulletBehaviour : MonoBehaviour
         // }
 
         IEntity damageable = hitInfo.GetComponent<IEntity>();
-        if (damageable != null)
+        if (damageable != null && hitInfo.gameObject.tag != "Enemy")
         {
             damageable.TakeDamage(damage);
             rb.velocity = Vector2.zero;
@@ -57,7 +46,7 @@ public class EnemyBulletBehaviour : MonoBehaviour
             Destroy(gameObject, hitmarkerAnimation.GetCurrentAnimatorStateInfo(0).length / 3);
 
         }
-        Destroy(gameObject, 7f);
+        
 
         // Instantiate(impactEffect, transform.position, transform.rotation);
 

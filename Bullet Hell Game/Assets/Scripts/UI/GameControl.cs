@@ -8,7 +8,8 @@ public class GameControl : MonoBehaviour
 
     public static GameControl instance;
 
-    public float scrollSpeed = -1.5f;
+    // public float scrollSpeed = -1.5f;
+    public GameObject gameOverMenuUI;
 
     public bool gameOver = false;
 
@@ -27,17 +28,20 @@ public class GameControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //If the game is over and the player has pressed some input...
-        if (gameOver && Input.GetMouseButtonDown(0))
+        if (gameOver)
         {
-            // //...reload the current scene.
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+        gameOverMenuUI.SetActive(true);
     }
 }

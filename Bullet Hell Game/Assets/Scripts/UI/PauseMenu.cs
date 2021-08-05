@@ -7,14 +7,21 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    
-    public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
 
-    public Button resumeButton, menuButton, quitButton;
+    public static bool GameIsPaused = false;
+    public GameObject pauseMenuUI, gameOverMenuUI;
+
+    public Button resumeButton, menuButton, quitButton, restartButton;
+    public Button GO_menuButton, GO_quitButton, GO_restartButton;
+
+    Scene currentScene;
+    string sceneName;
 
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+        
 
         Button resumeBTN = resumeButton.GetComponent<Button>();
         resumeBTN.onClick.AddListener(Resume);
@@ -25,7 +32,17 @@ public class PauseMenu : MonoBehaviour
         Button quitBTN = quitButton.GetComponent<Button>();
         quitBTN.onClick.AddListener(QuitGame);
 
+        Button restartBTN = restartButton.GetComponent<Button>();
+        restartButton.onClick.AddListener(RestartGame);
 
+        Button GO_menuBTN = GO_menuButton.GetComponent<Button>();
+        GO_menuButton.onClick.AddListener(LoadMenu);
+
+        Button GO_quitBTN = GO_quitButton.GetComponent<Button>();
+        GO_quitButton.onClick.AddListener(QuitGame);
+
+        Button GO_restartBTN = GO_restartButton.GetComponent<Button>();
+        GO_restartButton.onClick.AddListener(RestartGame);
 
 
 
@@ -35,10 +52,11 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(GameIsPaused)
+            if (GameIsPaused)
             {
                 Resume();
-            } else
+            }
+            else
             {
                 Pause();
             }
@@ -54,14 +72,14 @@ public class PauseMenu : MonoBehaviour
         UI_SoundManager.Instance.playSelectSound();
     }
 
-    public void Pause() 
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
-    public void LoadMenu() 
+    public void LoadMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
@@ -71,7 +89,20 @@ public class PauseMenu : MonoBehaviour
         UI_SoundManager.Instance.stopL1Music();
     }
 
-    public void QuitGame() 
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        GameIsPaused = true;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1;
+        GameIsPaused = false;
+    }
+
+    public void QuitGame()
     {
         UI_SoundManager.Instance.playQuitSound();
         Application.Quit();

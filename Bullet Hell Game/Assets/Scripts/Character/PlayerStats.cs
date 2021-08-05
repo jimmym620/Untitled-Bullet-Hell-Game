@@ -16,7 +16,6 @@ public class PlayerStats : MonoBehaviour, IEntity
         health -= amount;
         if (health <= 0f)
         {
-            Debug.Log("dead");
             Die();
         }
     }
@@ -41,10 +40,12 @@ public class PlayerStats : MonoBehaviour, IEntity
         // wait(((int)playerDeathSound.length));
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies){
-            GameObject.Destroy(enemy);
+            // GameObject.Destroy(enemy);
+            enemy.SetActive(false);
         }
         UI_SoundManager.Instance.stopL1Music();
         Time.timeScale = 0;
+        GameControl.instance.gameOver = true;
 
     }
 
