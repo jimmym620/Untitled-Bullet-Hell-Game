@@ -45,7 +45,7 @@ public class PlayerStats : MonoBehaviour, IEntity
         }
         UI_SoundManager.Instance.stopL1Music();
         Time.timeScale = 0;
-        GameControl.instance.gameOver = true;
+        GameControl.instance.GameOver();
 
     }
 

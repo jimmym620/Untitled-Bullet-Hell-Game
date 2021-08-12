@@ -50,7 +50,7 @@ public class PlayerShoot : MonoBehaviour
 
 
         // Mouse button fire
-        if(Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !PauseMenu.GameIsPaused)
+        if(Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !GameCanvas.GameIsPaused)
         {
             FirePoint.GetComponent<Animator>().SetTrigger("Shooting");
             nextTimeToFire = Time.time + 1 / fireRate;
@@ -58,7 +58,7 @@ public class PlayerShoot : MonoBehaviour
             Shoot();
         }
 
-        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !PauseMenu.GameIsPaused)
+        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !GameCanvas.GameIsPaused)
         {
             FirePoint.GetComponent<Animator>().SetTrigger("Shooting");
             nextTimeToFire = Time.time + 1 / fireRate;

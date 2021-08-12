@@ -6,7 +6,7 @@ public class PatrolBehaviour : StateMachineBehaviour
 {
     private Transform playerPos;
     public float speed;
-    private float DirY;
+    private float DirectionY;
     Rigidbody2D rb;
     TaximanAttack TA;
     private float proximityValue = 3.5f;
@@ -16,10 +16,15 @@ public class PatrolBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        if(playerPos == null)
+        {
+            GameControl.instance.GameOver();
+        }
+
         rb = animator.GetComponent<Rigidbody2D>();
         TA = animator.GetComponent<TaximanAttack>();
 
-        DirY = TA.getDirection();
+        DirectionY = TA.getDirection();
     }
 
     

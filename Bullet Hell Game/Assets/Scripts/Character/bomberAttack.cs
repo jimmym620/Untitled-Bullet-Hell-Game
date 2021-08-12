@@ -29,7 +29,8 @@ public class bomberAttack : MonoBehaviour
         if(damageable !=null){
             damageable.TakeDamage(60);
             rb.velocity = Vector2.zero;
-            Destroy(gameObject, 3f);
+            // Destroy(gameObject, 3f);
+            gameObject.SetActive(false);
         }
 
     }

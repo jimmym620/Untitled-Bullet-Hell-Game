@@ -43,7 +43,8 @@ public class EnemyBulletBehaviour : BulletBehaviour
             damageable.TakeDamage(damage);
             rb.velocity = Vector2.zero;
             hitmarkerAnimation.SetTrigger("hit");
-            Destroy(gameObject, hitmarkerAnimation.GetCurrentAnimatorStateInfo(0).length / 3);
+            // Destroy(gameObject, hitmarkerAnimation.GetCurrentAnimatorStateInfo(0).length / 3);
+            gameObject.SetActive(false);
 
         }
         

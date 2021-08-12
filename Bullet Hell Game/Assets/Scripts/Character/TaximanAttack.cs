@@ -7,8 +7,7 @@ public class TaximanAttack : Enemy
     ObjectPooler objectPooler;
     public Transform firePoint;
     private float DirY;
-    private bool enteredScene;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +26,22 @@ public class TaximanAttack : Enemy
 
     public void Shoot()
     {
-        if (gameObject.transform.position.x < 3){
+        if (gameObject.transform.position.x < 3)
+        {
             wait(3);
             // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             objectPooler.SpawnFromPool("Bullet_Red", firePoint.position, firePoint.rotation);
-
+            firePoint.GetComponent<Animator>().SetTrigger("Shoot");
         }
-        
+
     }
 
-    public IEnumerator wait(int waitTime){
-        while(true){
+    public IEnumerator wait(int waitTime)
+    {
+        while (true)
+        {
             yield return new WaitForSeconds(waitTime);
-        // Shoot();
+            // Shoot();
 
         }
     }
@@ -51,46 +53,53 @@ public class TaximanAttack : Enemy
     // }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
+    {   
+        // If hit the top border, change direction on y
         if (other.gameObject.tag == "Border")
         {
             DirY *= -1f;
 
         }
 
-        if (other.gameObject.tag == "BorderVertical")
-        {
-            enteredScene = true;
-        }
+        // if (other.gameObject.tag == "BorderVertical")
+        // {
+        //     enteredScene = true;
+        // }
 
-        if ((other.gameObject.tag == "BorderVertical") && enteredScene == true){
+        // // Entered the scene so this enemy cannot go outside of the vertical border
+        // if ((other.gameObject.tag == "BorderVertical") && enteredScene == true)
+        // {
 
-            rb.velocity = Vector2.zero;
-        }
+        //     rb.velocity = Vector2.zero;
+        // }
 
-}
+    }
 
-    public float getDirection(){
+    public float getDirection()
+    {
 
         return DirY;
     }
 
-    public Vector2 repositionEnemy(){
+    public Vector2 repositionEnemy()
+    {
         float y = Random.Range(base.yBoundaries, -base.yBoundaries);
-        float x = Random.Range(2, 3);
+        float x = Random.Range(0, 3);
 
         return new Vector2(x, y);
 
     }
 
-    public float repositionEnemyX(){
+    public float repositionEnemyX()
+    {
 
         float x = Random.Range(1, -1);
 
         return x;
     }
 
-    public float repositionEnemyY(){
+    public float repositionEnemyY()
+    {
 
         float y = Random.Range(1, -1);
         return y;

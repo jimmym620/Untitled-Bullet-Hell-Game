@@ -21,7 +21,8 @@ public class cloudBehaviour : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void Update()
     {
-        if((transform.position.x < -10) || (transform.position.y > 2.5)){
+        if ((transform.position.x < -10) || (transform.position.y > 2.5))
+        {
             gameObject.SetActive(false);
         }
 

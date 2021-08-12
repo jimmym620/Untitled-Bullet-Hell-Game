@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour
 {
-    PauseMenu pauseMenu;
+    GameCanvas pauseMenu;
     public Button menuButton, quitButton;
     // Start is called before the first frame update
     void Start()

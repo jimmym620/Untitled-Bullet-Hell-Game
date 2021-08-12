@@ -191,7 +191,7 @@ MonoBehaviour:
   fireRate: 3
   FirePoint: {fileID: 8352712461734200570}
   maxAmmo: 30
-  reloadTime: 3
+  reloadTime: 2
   ammoDisplay: {fileID: 0}
 --- !u!212 &8352712462207455743
 SpriteRenderer:
@@ -256,7 +256,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09805524, y: 0.0065189004}
+  m_Offset: {x: -0.09694862, y: 0.042414367}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -267,7 +267,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0802433, y: 0.33043778}
+  m_Size: {x: 1.0824566, y: 0.25864685}
   m_EdgeRadius: 0
 --- !u!82 &8352712462207455737
 AudioSource:

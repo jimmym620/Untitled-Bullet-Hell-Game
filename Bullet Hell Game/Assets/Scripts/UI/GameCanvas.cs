@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class PauseMenu : MonoBehaviour
+public class GameCanvas : MonoBehaviour
 {
 
     public static bool GameIsPaused = false;
@@ -100,6 +100,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         Time.timeScale = 1;
         GameIsPaused = false;
+        UI_SoundManager.Instance.playL1Music();
     }
 
     public void QuitGame()
