@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour, IEntity
 {
-    public float health = 100;
+    public float maxHealth;
+    public float health;
     public Text HP_Display;
     // public AudioClip playerDeathSound;
 
@@ -24,7 +25,7 @@ public class PlayerStats : MonoBehaviour, IEntity
     // Start is called before the first frame update
     void Start()
     {
-
+        health = maxHealth;
     }
 
     // Update is called once per frame

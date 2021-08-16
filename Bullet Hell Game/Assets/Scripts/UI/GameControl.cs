@@ -10,6 +10,7 @@ public class GameControl : MonoBehaviour
 
     // public float scrollSpeed = -1.5f;
     public GameObject gameOverMenuUI, waveOverUI;
+    public GameObject spawner;
     public bool waveIsOver; //is set to true in SpawnerL script
     public int numOfWaves;
     public int currentWave;
@@ -38,6 +39,7 @@ public class GameControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         passCollectedText.text = passsengersCollected.ToString();
     }
 
@@ -49,7 +51,7 @@ public class GameControl : MonoBehaviour
             waveComplete();
         }
 
-        passCollectedText.text = "Passengers Collected: " + passsengersCollected;
+        passCollectedText.text = "Passengers Collected: " + passsengersCollected + "/" + spawner.GetComponent<SpawnerL1>().platformsToSpawn ;
 
         
     }

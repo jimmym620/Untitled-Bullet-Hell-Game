@@ -16,16 +16,20 @@ public class Enemy : MonoBehaviour, IEntity
 
     public Animator deathAnim;
 
+    void OnEnable()
+    {
+        gameObject.GetComponent<Collider2D>().enabled = true;
+    }
     void Awake()
     {
-        
+
 
     }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+
 
     }
 
@@ -45,7 +49,7 @@ public class Enemy : MonoBehaviour, IEntity
         if (other.gameObject.tag == "BorderVertical")
         {
             enteredScene = true;
-           
+
         }
 
         // Entered the scene so this enemy cannot go outside of the vertical border

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnerL1 : MonoBehaviour
 {
+    private GameObject player;
     public Transform InstantiatedParent;
     ObjectPooler objectPooler;
     public GameObject[] enemyList;
@@ -12,27 +13,43 @@ public class SpawnerL1 : MonoBehaviour
     int enemiesSpawned = 0;
     public bool allEnemiesSpawned = false;
     string[] enemyTypes = { "Taximan", "Bomber" };
-    public GameObject[] numOfEnemiesRemaining;
-    public GameObject[] numOfPlatformsOnScreen;
+    private GameObject[] numOfEnemiesRemaining;
+    private GameObject[] numOfPlatformsOnScreen;
 
-    public int platformsSpawned = 0;
-    public int platformsToSpawn;
+    private GameObject[] numOfResupTrucksOnScreen;
+
+
+    private int platformsSpawned = 0;
+
+    public int platformsToSpawn = 5;
     public bool allPassengersCollected = false;
     // Start is called before the first frame update
     void Start()
     {
         objectPooler = ObjectPooler.Instance;
         StartCoroutine(spawnEnemy());
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Awake()
     {
-        numOfPlatformsOnScreen = GameObject.FindGameObjectsWithTag("Platform");
+        // numOfPlatformsOnScreen = GameObject.FindGameObjectsWithTag("Platform");
+        // numOfResupTrucksOnScreen = GameObject.FindGameObjectsWithTag("ResupplyTruck");
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if(player != null){
+
+            // If player loses health, spawn resupply truck
+            numOfResupTrucksOnScreen = GameObject.FindGameObjectsWithTag("ResupplyTruck");
+            if (player.GetComponent<PlayerStats>().health < player.GetComponent<PlayerStats>().maxHealth && numOfResupTrucksOnScreen.Length < 1)
+            {
+                spawnResupply();
+            }
+            
+        }
         numOfEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy");
         //If all enemies are defeated, the wave/level is over;
         if ((numOfEnemiesRemaining.Length == 0) && (allEnemiesSpawned == true) && (allPassengersCollected == true))
@@ -46,7 +63,7 @@ public class SpawnerL1 : MonoBehaviour
             Invoke("spawnPlatform", 3);
             // spawnPlatform();
         }
-        if(numOfPlatformsOnScreen.Length > 1)
+        if (numOfPlatformsOnScreen.Length > 1)
         {
             numOfPlatformsOnScreen[1].SetActive(false);
         }
@@ -108,14 +125,28 @@ public class SpawnerL1 : MonoBehaviour
 
     void spawnPlatform()
     {
-        if(numOfPlatformsOnScreen.Length < 1)
+        if (numOfPlatformsOnScreen.Length < 1)
         {
-        platformsSpawned++;
-        GameObject platform_Pass = objectPooler.SpawnFromPool("Platform_Pass", new Vector3(choosePositionX(), choosePositionY(), 1), transform.rotation);
-        platform_Pass.transform.SetParent(InstantiatedParent);
+            platformsSpawned++;
+            GameObject platform_Pass = objectPooler.SpawnFromPool("Platform_Pass", new Vector3(choosePositionX(), choosePositionY(), 1), transform.rotation);
+            platform_Pass.transform.SetParent(InstantiatedParent);
 
         }
     }
 
+    void spawnResupply()
+    {
+        
+
+        GameObject resupplyTruck = objectPooler.SpawnFromPool("ResupplyTruck", new Vector3(choosePositionX(), choosePositionY(), 0), transform.rotation);
+        resupplyTruck.transform.SetParent(InstantiatedParent);
+
+    }
+
+    void newWave()
+    {
+
+
+    }
 
 }

@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverMenuUI: {fileID: 410004926}
   waveOverUI: {fileID: 1237274908}
+  spawner: {fileID: 1900387944}
   waveIsOver: 0
   numOfWaves: 2
   currentWave: 0
@@ -301,6 +302,10 @@ MonoBehaviour:
     size: 10
   - tag: Platform_Pass
     prefab: {fileID: 6602448160951984483, guid: 897f8be2198849e459ff539f2219950f,
+      type: 3}
+    size: 3
+  - tag: ResupplyTruck
+    prefab: {fileID: 8679325058126666262, guid: 5231832480b616547a5610ee0871f462,
       type: 3}
     size: 3
 --- !u!1 &259531076
@@ -415,7 +420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &615638533
 PrefabInstance:
@@ -1209,12 +1214,9 @@ MonoBehaviour:
   enemyList:
   - {fileID: 3232726480732157712, guid: e3ef0febad5b7a74097f0bb6dc3ff744, type: 3}
   - {fileID: 8607378897778565597, guid: 995d27ba397fd4549a9347ee8123f4dd, type: 3}
-  enemyKillGoal: 3
+  enemyKillGoal: 20
   allEnemiesSpawned: 0
-  numOfEnemiesRemaining: []
-  numOfPlatformsOnScreen: []
-  platformsSpawned: 0
-  platformsToSpawn: 1
+  platformsToSpawn: 5
   allPassengersCollected: 0
 --- !u!4 &1900387946
 Transform:
@@ -1228,7 +1230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940491960
 GameObject:
@@ -2145,80 +2147,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c28367c7f08f83a4fac0f9c0cb33339d, type: 3}
---- !u!1001 &6602448162226871899
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984481, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984483, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_Name
-      value: Platform_Pass
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602448160951984483, guid: 897f8be2198849e459ff539f2219950f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 897f8be2198849e459ff539f2219950f, type: 3}
 --- !u!1001 &8352712460891088746
 PrefabInstance:
   m_ObjectHideFlags: 0

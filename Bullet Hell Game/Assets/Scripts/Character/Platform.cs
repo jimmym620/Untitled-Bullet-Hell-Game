@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformBehaviour : MonoBehaviour
+public class Platform : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float scrollSpeed;

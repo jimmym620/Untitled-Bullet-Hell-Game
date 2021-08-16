@@ -9,6 +9,8 @@ TagManager:
   - Cloud
   - BorderVertical
   - Platform
+  - Breakable
+  - ResupplyTruck
   layers:
   - Default
   - TransparentFX
