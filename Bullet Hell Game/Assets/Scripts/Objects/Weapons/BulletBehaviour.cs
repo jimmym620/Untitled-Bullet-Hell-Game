@@ -72,6 +72,7 @@ public class BulletBehaviour : MonoBehaviour, IPooledObject
 
     }
 
+    //Let the collision anim play and then disable
     IEnumerator waitAndDisable(float sec, GameObject obj)
     {
 

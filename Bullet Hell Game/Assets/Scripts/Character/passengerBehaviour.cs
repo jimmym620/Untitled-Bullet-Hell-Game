@@ -23,6 +23,7 @@ public class passengerBehaviour : MonoBehaviour
         if(other.gameObject.tag == "Player"){
             gameObject.SetActive(false);
             int collected = GameControl.instance.passsengersCollected++;
+            UI_SoundManager.Instance.playPassengerCollectedSound();
         }
     }
 }

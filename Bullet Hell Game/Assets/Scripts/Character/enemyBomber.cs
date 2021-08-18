@@ -12,34 +12,42 @@ public class enemyBomber : Enemy
     private bool isDead = false;
     int soundCount;
     int maxSoundCount = 52;
+    private Animator anim;
+   
 
-
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
-
+    private void OnEnable()
+    {
+        anim.SetBool("isFollowing", true);
+    }
     // Update is called once per frame
     void Update()
     {
         // transform.position = Vector2.MoveTowards(transform.position, target.position, followSpeed * Time.deltaTime);
         float distanceToPlayer = Vector2.Distance(target.position, transform.position);
-        if ((distanceToPlayer < proximity) && soundCount < maxSoundCount )
+        if ((distanceToPlayer < proximity) && soundCount < maxSoundCount)
         {
-            if(proximitySound.isPlaying && isDead){
+            if (proximitySound.isPlaying && isDead)
+            {
                 proximitySound.Stop();
             }
-            if(!proximitySound.isPlaying  ){
+            if (!proximitySound.isPlaying)
+            {
                 proximitySound.Play();
                 soundCount++;
-            }   
+            }
         }
 
-
-
-
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -49,6 +57,7 @@ public class enemyBomber : Enemy
             damageable.TakeDamage(damage);
             isDead = true;
             base.Die();
+
             gameObject.SetActive(false);
         }
 

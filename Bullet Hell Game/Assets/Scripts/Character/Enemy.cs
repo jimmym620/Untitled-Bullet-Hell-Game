@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IEntity
 {
-
+    public float maxHealth;
     public float health;
     public AudioClip deathSound;
     private bool deathPlayed = false;
@@ -14,17 +14,17 @@ public class Enemy : MonoBehaviour, IEntity
 
     private bool enteredScene;
 
-    public Animator deathAnim;
+    public Animator animator;
+    public GameObject deathEffect;
 
-    void OnEnable()
+
+    public virtual void OnDisable()
     {
         gameObject.GetComponent<Collider2D>().enabled = true;
-    }
-    void Awake()
-    {
-
 
     }
+
+
 
     void Start()
     {
@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour, IEntity
         if (health <= 0f)
         {
             Die();
+            
         }
     }
 
@@ -66,13 +67,15 @@ public class Enemy : MonoBehaviour, IEntity
     // Destroy the game object on death
     public virtual void Die()
     {
-        deathAnim.SetTrigger("Dead");
+        animator.SetTrigger("Dead");
         // Destroy(gameObject, deathAnim.GetCurrentAnimatorStateInfo(0).length);
-        gameObject.SetActive(false);
         gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.SetActive(false);
         if (!deathPlayed)
         {
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            Instantiate(deathEffect, gameObject.transform.position, transform.rotation);
+
             deathPlayed = true;
         }
 

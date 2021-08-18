@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Breakable :MonoBehaviour, IEntity
+public class Breakable : MonoBehaviour, IEntity
 {
     public float health;
     public float moveSpeed = 1;
@@ -16,6 +16,11 @@ public class Breakable :MonoBehaviour, IEntity
         }
     }
 
+    public virtual void OnEnable()
+    {
+        gameObject.GetComponent<Collider2D>().enabled = true;
+    }
+
     public virtual void Die()
     {
         gameObject.GetComponent<Collider2D>().enabled = false;
@@ -25,12 +30,12 @@ public class Breakable :MonoBehaviour, IEntity
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

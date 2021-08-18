@@ -164,13 +164,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200c50cd4a99d7c4c99aa7b7a69b78ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   health: 100
   deathSound: {fileID: 8300000, guid: c0023b0169b0d30419879771eaf908ad, type: 3}
   moveSpeed: 0
   rb: {fileID: 3232726480732157716}
   yBoundaries: 1.7
-  deathAnim: {fileID: 3974996303175391603}
+  animator: {fileID: 3974996303175391603}
+  deathEffect: {fileID: 4191108248804553634, guid: 826d23716b623d54d9b11e15af832eab,
+    type: 3}
   firePoint: {fileID: 7753338386905744747}
+  firePointAnim: {fileID: 532454592}
+  shootSound:
+  - {fileID: 8300000, guid: 1e8d8c1f89a9924418f94623287260de, type: 3}
+  - {fileID: 8300000, guid: b58d0f9669fac06488d2f5c89b61e3ae, type: 3}
 --- !u!1 &7281620705463557059
 GameObject:
   m_ObjectHideFlags: 0

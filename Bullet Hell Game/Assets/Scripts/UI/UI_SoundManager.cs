@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class UI_SoundManager : MonoBehaviour
 {
-    public AudioSource selectSound, cancelSound, quitSound, menuMusic, L1Music, playerDeathSound;
+    public AudioSource selectSound, cancelSound, quitSound, menuMusic, L1Music, playerDeathSound, passengerCollected, ResTruckDeath;
 
     //Singleton
     public static UI_SoundManager Instance = null;
@@ -84,5 +84,15 @@ public class UI_SoundManager : MonoBehaviour
 
     public void playPlayerDeathSound(){
         playerDeathSound.Play();
+    }
+
+    public void playPassengerCollectedSound()
+    {
+        passengerCollected.Play();
+    }
+
+    public void playResTruckDeath() 
+    {
+        ResTruckDeath.Play();
     }
 }

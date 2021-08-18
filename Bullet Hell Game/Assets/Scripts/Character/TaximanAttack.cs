@@ -2,36 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaximanAttack : Enemy
+public class TaximanAttack : Enemy, IPooledObject
 {
     ObjectPooler objectPooler;
     public Transform firePoint;
     private float DirY;
-
+    public Animator firePointAnim;
+    public AudioClip[] shootSound;
 
     // Start is called before the first frame update
-    void Start()
+    public void onObjectSpawn()
     {
         // StartCoroutine(wait(3));
         DirY = -1f;
         objectPooler = ObjectPooler.Instance;
+        health = maxHealth;
 
     }
+
+
+
 
     // Update is called once per frame
     void Update()
     {
-
+        firePointAnim.keepAnimatorControllerStateOnDisable = true;
     }
 
     public void Shoot()
     {
-        if (gameObject.transform.position.x < 3)
+        if (gameObject.transform.position.x < 4)
         {
             wait(3);
             // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             objectPooler.SpawnFromPool("Bullet_Red", firePoint.position, firePoint.rotation);
-            firePoint.GetComponent<Animator>().SetTrigger("Shoot");
+            firePointAnim.SetTrigger("Shoot");
+            AudioSource.PlayClipAtPoint(pickShootSound(), transform.position);
         }
 
     }
@@ -53,7 +59,7 @@ public class TaximanAttack : Enemy
     // }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {   
+    {
         // If hit the top border, change direction on y
         if (other.gameObject.tag == "Border")
         {
@@ -105,6 +111,11 @@ public class TaximanAttack : Enemy
         return y;
     }
 
+    private AudioClip pickShootSound()
+    {
+        int pick = Random.Range(0, shootSound.Length);
+        return shootSound[pick];
+    }
 
 }
 

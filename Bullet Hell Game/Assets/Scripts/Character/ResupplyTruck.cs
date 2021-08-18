@@ -5,8 +5,10 @@ using UnityEngine;
 public class ResupplyTruck : Breakable
 {
     ObjectPooler objectPooler;
-    public bool enteredScene;
+    public bool enteredScene = false;
     public float speed = 1;
+
+    private Animator SM;
 
     private float DirX;
 
@@ -16,17 +18,21 @@ public class ResupplyTruck : Breakable
     {
         DirX = 1f;
         objectPooler = ObjectPooler.Instance;
+        SM = GetComponent<Animator>();
 
 
 
         // rb.velocity = new Vector2(-DirX, 0);
     }
-
-    private void OnEnable() {
-        gameObject.GetComponent<Collider2D>().enabled = true;
+    public override void OnEnable()
+    {
+        base.OnEnable();
         enteredScene = false;
-
+        DirX = 1f;
     }
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -35,19 +41,28 @@ public class ResupplyTruck : Breakable
 
     void OnTriggerEnter2D(Collider2D other)
     {
-            if (enteredScene == true && other.gameObject.tag == "BorderVertical")
-            {
-                DirX *= -1f;
-            }
+        if (enteredScene == true && other.gameObject.tag == "BorderVertical")
+        {
+            DirX *= -1f;
+        }
 
 
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BorderVertical"){
+        if (other.gameObject.tag == "BorderVertical")
+        {
             enteredScene = true;
         }
+    }
+
+    public override void Die()
+    {
+        SM.Rebind();
+        SM.Update(0f);
+        base.Die();
+        UI_SoundManager.Instance.playResTruckDeath();
     }
 
     public float getDirectionX()

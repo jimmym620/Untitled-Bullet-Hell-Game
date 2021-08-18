@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6505835858487271192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6505835858487271193}
+  - component: {fileID: 6505835858487271194}
+  - component: {fileID: 6505835858487271195}
+  m_Layer: 0
+  m_Name: Game Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6505835858487271193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505835858487271192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8600574, y: 2.137399, z: -1.0561538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6505835858487271194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505835858487271192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3762b8144ab3b54e9dccc47ff5f3454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnerObject: {fileID: 0}
+  gameOverMenuUI: {fileID: 0}
+  waveOverUI: {fileID: 0}
+  waveIsOver: 0
+  numOfWaves: 2
+  currentWave: 0
+  passsengersCollected: 0
+  passCollectedText: {fileID: 0}
+  platformOnScreen: 0
+  gameOver: 0
+  waveScreenActive: 0
+--- !u!114 &6505835858487271195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505835858487271192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef91672c276a0474cbb52dfb8687685e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoolStorageObject: {fileID: 0}
+  pools:
+  - tag: Bullet
+    prefab: {fileID: 7114136538207590317, guid: e858fd58815cc3a40b3298027aea5ab8,
+      type: 3}
+    size: 12
+  - tag: Bullet_Red
+    prefab: {fileID: 7114136538207590317, guid: 1cf14408e1d3d1645a120425e171273c,
+      type: 3}
+    size: 15
+  - tag: Cloud
+    prefab: {fileID: 8344176040278300080, guid: 39fcb740fd66217449f1cf3585ff0eef,
+      type: 3}
+    size: 30
+  - tag: Taximan
+    prefab: {fileID: 3232726480732157712, guid: e3ef0febad5b7a74097f0bb6dc3ff744,
+      type: 3}
+    size: 10
+  - tag: Bomber
+    prefab: {fileID: 8607378897778565597, guid: 995d27ba397fd4549a9347ee8123f4dd,
+      type: 3}
+    size: 5
+  - tag: Platform_Pass
+    prefab: {fileID: 6602448160951984483, guid: 897f8be2198849e459ff539f2219950f,
+      type: 3}
+    size: 3
+  - tag: ResupplyTruck
+    prefab: {fileID: 8679325058126666262, guid: 5231832480b616547a5610ee0871f462,
+      type: 3}
+    size: 3

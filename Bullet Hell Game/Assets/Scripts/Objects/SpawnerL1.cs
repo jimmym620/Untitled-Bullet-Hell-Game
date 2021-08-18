@@ -16,18 +16,16 @@ public class SpawnerL1 : MonoBehaviour
     private GameObject[] numOfEnemiesRemaining;
     private GameObject[] numOfPlatformsOnScreen;
 
-    private GameObject[] numOfResupTrucksOnScreen;
+    public GameObject[] numOfResupTrucksOnScreen;
 
-
-    private int platformsSpawned = 0;
-
-    public int platformsToSpawn = 5;
+    public int platformsSpawned = 0;
+    public int platformsToSpawn;
     public bool allPassengersCollected = false;
     // Start is called before the first frame update
     void Start()
     {
         objectPooler = ObjectPooler.Instance;
-        StartCoroutine(spawnEnemy());
+        StartCoroutine("spawnEnemy");
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -39,8 +37,9 @@ public class SpawnerL1 : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        if(player != null){
+    {
+        if (player != null)
+        {
 
             // If player loses health, spawn resupply truck
             numOfResupTrucksOnScreen = GameObject.FindGameObjectsWithTag("ResupplyTruck");
@@ -48,7 +47,7 @@ public class SpawnerL1 : MonoBehaviour
             {
                 spawnResupply();
             }
-            
+
         }
         numOfEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy");
         //If all enemies are defeated, the wave/level is over;
@@ -96,6 +95,7 @@ public class SpawnerL1 : MonoBehaviour
         int pick = Random.Range(0, enemyTypes.Length);
 
         return enemyTypes[pick];
+        // return "Taximan";
 
 
 
@@ -106,14 +106,14 @@ public class SpawnerL1 : MonoBehaviour
         while (enemiesSpawned < enemyKillGoal)
         {
             // GameObject enemy = Instantiate(enemyList[chooseEnemy()], new Vector2(choosePositionX(), choosePositionY()), transform.rotation);
+            yield return new WaitForSeconds(5f);
             GameObject enemy = objectPooler.SpawnFromPool(chooseEnemy(), new Vector3(choosePositionX(), choosePositionY(), 0), transform.rotation);
             enemy.transform.SetParent(InstantiatedParent);
-            yield return new WaitForSeconds(2f);
             enemiesSpawned++;
         }
         if (enemiesSpawned == enemyKillGoal)
         {
-            StopCoroutine(spawnEnemy());
+            StopCoroutine("spawnEnemy");
             allEnemiesSpawned = true;
         }
     }
@@ -136,7 +136,7 @@ public class SpawnerL1 : MonoBehaviour
 
     void spawnResupply()
     {
-        
+
 
         GameObject resupplyTruck = objectPooler.SpawnFromPool("ResupplyTruck", new Vector3(choosePositionX(), choosePositionY(), 0), transform.rotation);
         resupplyTruck.transform.SetParent(InstantiatedParent);

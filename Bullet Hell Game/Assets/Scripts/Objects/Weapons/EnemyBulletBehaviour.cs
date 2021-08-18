@@ -44,12 +44,23 @@ public class EnemyBulletBehaviour : BulletBehaviour
             rb.velocity = Vector2.zero;
             hitmarkerAnimation.SetTrigger("hit");
             // Destroy(gameObject, hitmarkerAnimation.GetCurrentAnimatorStateInfo(0).length / 3);
-            gameObject.SetActive(false);
+            
+
+            StartCoroutine(waitAndDisable(0.3f, gameObject));
 
         }
         
 
         // Instantiate(impactEffect, transform.position, transform.rotation);
+
+    }
+    IEnumerator waitAndDisable(float sec, GameObject obj)
+    {
+
+        yield return new WaitForSeconds(sec);
+        hitmarkerAnimation.Rebind();
+        hitmarkerAnimation.Update(0f);
+        obj.SetActive(false);
 
     }
 
