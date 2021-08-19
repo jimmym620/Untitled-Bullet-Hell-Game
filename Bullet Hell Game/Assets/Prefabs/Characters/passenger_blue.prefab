@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 337360633125727412}
   m_Layer: 0
   m_Name: passenger_blue
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,8 +103,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &337360633125727415
 BoxCollider2D:
   m_ObjectHideFlags: 0

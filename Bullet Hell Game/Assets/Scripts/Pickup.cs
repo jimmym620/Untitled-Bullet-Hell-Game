@@ -35,6 +35,7 @@ public class Pickup : MonoBehaviour
             timeStamp = Time.time;
             player = GameObject.FindGameObjectWithTag("Player");
             flyToPlayer = true;
+            gameObject.transform.parent = null;
         }
     }
 }

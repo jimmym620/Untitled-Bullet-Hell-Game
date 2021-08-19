@@ -5,24 +5,24 @@ using UnityEngine;
 public class HealthKit : Pickup
 {
     //Bouncing variables
-    private Rigidbody2D rb;
+    private Rigidbody2D rb_;
     public float force = 5;
     Vector3 lastVelocity;
 
 
     // Start is called before the first frame update
     public override void Start()
-    {
+    {   
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(9.8f * force, 9.8f * force));
+        rb_ = GetComponent<Rigidbody2D>();
+        rb_.AddForce(new Vector2(9.8f * force, 9.8f * force));
     }
 
     // Update is called once per frame
     public override void Update()
     {   
         base.Update();
-        lastVelocity = rb.velocity;
+        lastVelocity = rb_.velocity;
 
     }
 
@@ -32,7 +32,7 @@ public class HealthKit : Pickup
         var speed = lastVelocity.magnitude;
         var direction = Vector3.Reflect(lastVelocity.normalized, other.GetContact(0).normal);
 
-        rb.velocity = direction * Mathf.Max(speed, 0f);
+        rb_.velocity = direction * Mathf.Max(speed, 0f);
 
 
     }
