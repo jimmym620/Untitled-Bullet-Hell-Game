@@ -20,7 +20,7 @@ public class PlayerCollectionPoint : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Pickup"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 }

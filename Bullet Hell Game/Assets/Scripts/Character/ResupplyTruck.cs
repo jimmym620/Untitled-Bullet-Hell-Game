@@ -61,6 +61,7 @@ public class ResupplyTruck : Breakable
     {
         SM.Rebind();
         SM.Update(0f);
+        objectPooler.SpawnFromPool("HealthKit", transform.position, transform.rotation);
         base.Die();
         UI_SoundManager.Instance.playResTruckDeath();
     }

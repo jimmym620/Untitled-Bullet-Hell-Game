@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthKit : Pickup
+public class HealthKit : Pickup, IPooledObject
 {
     //Bouncing variables
     private Rigidbody2D rb_;
     public float force = 5;
     Vector3 lastVelocity;
 
+    public void onObjectSpawn()
+    {
+        Start();
+    }
 
     // Start is called before the first frame update
     public override void Start()

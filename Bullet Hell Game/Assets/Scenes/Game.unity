@@ -2002,75 +2002,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14feebef7d9f9914eb3cd4b507a891f1, type: 3}
---- !u!1001 &5365510752458941198
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.9651906
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0052276254
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456507, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5365510752907456511, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-      propertyPath: m_Name
-      value: Health Kit
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d0ce490a5e035fe43a0061d5d4c33f58, type: 3}
 --- !u!1001 &5604205916143532003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2283,14 +2214,35 @@ PrefabInstance:
       objectReference: {fileID: 1126548713}
     - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
         type: 3}
+      propertyPath: pools.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
+        type: 3}
       propertyPath: PoolStorageObject
       value: 
       objectReference: {fileID: 546249518}
     - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
         type: 3}
-      propertyPath: pools.Array.data[6].size
-      value: 1
+      propertyPath: pools.Array.data[7].tag
+      value: HealthKit
       objectReference: {fileID: 0}
+    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
+        type: 3}
+      propertyPath: pools.Array.data[6].size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
+        type: 3}
+      propertyPath: pools.Array.data[7].size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
+        type: 3}
+      propertyPath: pools.Array.data[7].prefab
+      value: 
+      objectReference: {fileID: 5365510752907456511, guid: d0ce490a5e035fe43a0061d5d4c33f58,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6, type: 3}
 --- !u!1001 &8352712460891088746
