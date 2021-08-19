@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour, IEntity
     public float maxHealth;
     public float health;
     public Text HP_Display;
+
+
+    
     // public AudioClip playerDeathSound;
 
 
@@ -34,13 +37,15 @@ public class PlayerStats : MonoBehaviour, IEntity
         HP_Display.text = "Health \n" + health;
     }
 
-    public void Die(){
+    public void Die()
+    {
         // AudioSource.PlayClipAtPoint(playerDeathSound, transform.position);
         UI_SoundManager.Instance.playPlayerDeathSound();
         Destroy(gameObject);
         // wait(((int)playerDeathSound.length));
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject enemy in enemies){
+        foreach (GameObject enemy in enemies)
+        {
             // GameObject.Destroy(enemy);
             enemy.SetActive(false);
         }
@@ -50,8 +55,10 @@ public class PlayerStats : MonoBehaviour, IEntity
 
     }
 
-    IEnumerator wait(int value){
+    IEnumerator wait(int value)
+    {
 
         yield return new WaitForSeconds(value);
     }
+
 }

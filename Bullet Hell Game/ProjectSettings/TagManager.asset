@@ -11,6 +11,7 @@ TagManager:
   - Platform
   - Breakable
   - ResupplyTruck
+  - Pickup
   layers:
   - Default
   - TransparentFX

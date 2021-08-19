@@ -2,31 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bounce : MonoBehaviour
+public class HealthKit : Pickup
 {
+    //Bouncing variables
     private Rigidbody2D rb;
     public float force = 5;
     Vector3 lastVelocity;
+
+
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(9.8f * force, 9.8f * force));
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    public override void Update()
+    {   
+        base.Update();
         lastVelocity = rb.velocity;
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        // Bounce around the screen
         var speed = lastVelocity.magnitude;
         var direction = Vector3.Reflect(lastVelocity.normalized, other.GetContact(0).normal);
 
         rb.velocity = direction * Mathf.Max(speed, 0f);
+
+
     }
+
+    public override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+    }
+
 }
 
 //https://www.youtube.com/watch?v=RoZG5RARGF0

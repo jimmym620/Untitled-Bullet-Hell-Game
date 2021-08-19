@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testDeathAnim : MonoBehaviour
+public class DeathAnim : MonoBehaviour
 {
     Animator anim;
     public float secondsToWait =1;
