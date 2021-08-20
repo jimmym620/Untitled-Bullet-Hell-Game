@@ -23,7 +23,8 @@ public class BulletBehaviour : MonoBehaviour, IPooledObject
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        // if too far off screen
         if (transform.position.x > rightSide)
         {
             gameObject.SetActive(false);

@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class PlayerCollectionPoint : MonoBehaviour
 {
+    private GameObject player;
+    // private string[] PickupTypes = { "Pickup", "HealthKit" };
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        player = GameObject.FindGameObjectWithTag("Player");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,6 +19,19 @@ public class PlayerCollectionPoint : MonoBehaviour
         if (other.gameObject.tag.Equals("Pickup"))
         {
             other.gameObject.SetActive(false);
+
+        }
+
+        if (other.gameObject.tag.Equals("HealthKit"))
+        {
+            other.gameObject.SetActive(false);
+            player.GetComponent<PlayerStats>().addHealth(other.GetComponent<HealthKit>().HP_Value);
+        }
+
+        if(other.gameObject.name.Equals("passenger_blue"))
+        {
+            int collected = GameControl.instance.passsengersCollected++;
+            UI_SoundManager.Instance.playPassengerCollectedSound();
         }
     }
 }

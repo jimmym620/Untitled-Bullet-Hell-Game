@@ -9,10 +9,7 @@ public class PlayerStats : MonoBehaviour, IEntity
     public float health;
     public Text HP_Display;
 
-
-    
     // public AudioClip playerDeathSound;
-
 
 
     public void TakeDamage(float amount)
@@ -21,6 +18,16 @@ public class PlayerStats : MonoBehaviour, IEntity
         if (health <= 0f)
         {
             Die();
+        }
+    }
+
+    public void addHealth(float amount)
+    {
+        if (health < maxHealth)
+        {
+            health += amount;
+        } else{
+            health = maxHealth;
         }
     }
 
@@ -35,6 +42,9 @@ public class PlayerStats : MonoBehaviour, IEntity
     void Update()
     {
         HP_Display.text = "Health \n" + health;
+        if(health > maxHealth){
+            health = maxHealth;
+        }
     }
 
     public void Die()
@@ -46,7 +56,6 @@ public class PlayerStats : MonoBehaviour, IEntity
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
-            // GameObject.Destroy(enemy);
             enemy.SetActive(false);
         }
         UI_SoundManager.Instance.stopL1Music();

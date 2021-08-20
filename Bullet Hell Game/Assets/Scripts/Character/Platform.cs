@@ -2,30 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platform : MonoBehaviour
+public class Platform : MonoBehaviour, IPooledObject
 {
-    public Rigidbody2D rb;
-    public float scrollSpeed;
-    public GameObject passenger;
-    // Start is called before the first frame update
-    void Start()
-    {
-        // rb = GetComponent<Rigidbody2D>();
 
+    public Rigidbody2D rb;
+    public float scrollSpeed = 1;
+    public GameObject passenger, platform;
+
+    public void onObjectSpawn()
+    {   
+        passenger.SetActive(true);
+        gameObject.SetActive(true);
+        platform.SetActive(true);
+
+        passenger.transform.parent = gameObject.transform;
         rb.velocity = new Vector2(-scrollSpeed, 0);
-       
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector2(-scrollSpeed, 0);
-
+        //If off screen
         if ((transform.position.x < -5) || (transform.position.y > 2.5))
         {
+            passenger.SetActive(false);
             gameObject.SetActive(false);
+            platform.SetActive(false);
             GameControl.instance.platformOnScreen = false; 
-            passenger.SetActive(true);
         }
 
         if(transform.position.x <= 2 && transform.position.x >=-2)
@@ -39,14 +45,6 @@ public class Platform : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
-    }
-
-    void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Player")
-        {
-
-            // other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        }
     }
 
 }

@@ -56,6 +56,7 @@ public class GameControl : MonoBehaviour
     public void GameOver()
     {
         gameOverMenuUI.SetActive(true);
+        gameOver = true;
 
     }
 

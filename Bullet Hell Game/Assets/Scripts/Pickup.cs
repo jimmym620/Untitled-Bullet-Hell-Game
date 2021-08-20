@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class Pickup : MonoBehaviour, IPooledObject
 {
     private Rigidbody2D rb;
-    float timeStamp;
-    GameObject player;
-    bool flyToPlayer;
+    [HideInInspector] public float timeStamp;
+    [HideInInspector] public GameObject player;
+    [HideInInspector] public bool flyToPlayer;
     private Vector2 playerDirection;
 
     // Start is called before the first frame update
-    public virtual void Start()
+    public virtual void onObjectSpawn()
+    {
+        gameObject.SetActive(true);
+    }
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 

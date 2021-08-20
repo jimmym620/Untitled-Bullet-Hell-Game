@@ -7,7 +7,6 @@ public class SpawnerL1 : MonoBehaviour
     private GameObject player;
     public Transform InstantiatedParent;
     ObjectPooler objectPooler;
-    public GameObject[] enemyList;
     private float timeBetweenWaves;
     public int enemyKillGoal = 5;
     int enemiesSpawned = 0;
@@ -16,11 +15,15 @@ public class SpawnerL1 : MonoBehaviour
     private GameObject[] numOfEnemiesRemaining;
     private GameObject[] numOfPlatformsOnScreen;
 
-    public GameObject[] numOfResupTrucksOnScreen;
+    private GameObject[] numOfResupTrucksOnScreen;
+    private GameObject[] numOfHealthKitsOnScreen;
 
     public int platformsSpawned = 0;
     public int platformsToSpawn;
     public bool allPassengersCollected = false;
+
+    bool isSpawnResupplyStarted;
+    bool isSpawnPlatformStarted;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,38 +39,38 @@ public class SpawnerL1 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (player != null)
         {
-
             // If player loses health, spawn resupply truck
             numOfResupTrucksOnScreen = GameObject.FindGameObjectsWithTag("ResupplyTruck");
-            if (player.GetComponent<PlayerStats>().health < player.GetComponent<PlayerStats>().maxHealth && numOfResupTrucksOnScreen.Length < 1)
+            numOfHealthKitsOnScreen = GameObject.FindGameObjectsWithTag("HealthKit");
+            if (player.GetComponent<PlayerStats>().health < player.GetComponent<PlayerStats>().maxHealth && numOfResupTrucksOnScreen.Length < 1 && numOfHealthKitsOnScreen.Length < 1)
             {
-                spawnResupply();
-            }
+                if (!isSpawnResupplyStarted)
+                {
+                    StartCoroutine("spawnResupply");
 
+                }
+                // spawnResupply();
+            }
         }
+        //CHECK enemy amount
         numOfEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy");
         //If all enemies are defeated, the wave/level is over;
         if ((numOfEnemiesRemaining.Length == 0) && (allEnemiesSpawned == true) && (allPassengersCollected == true))
         {
             GameControl.instance.waveIsOver = true;
         }
-
+        // CHECK platform amount
         numOfPlatformsOnScreen = GameObject.FindGameObjectsWithTag("Platform");
         if (numOfPlatformsOnScreen.Length < 1 && GameControl.instance.passsengersCollected < platformsToSpawn)
-        {
-            Invoke("spawnPlatform", 3);
-            // spawnPlatform();
+        {   
+            if(!isSpawnPlatformStarted){
+                StartCoroutine("spawnPlatform");
+            }
         }
-        if (numOfPlatformsOnScreen.Length > 1)
-        {
-            numOfPlatformsOnScreen[1].SetActive(false);
-        }
-
-
         // If all passsengers are collected
         if (GameControl.instance.passsengersCollected == platformsToSpawn)
         {
@@ -75,6 +78,7 @@ public class SpawnerL1 : MonoBehaviour
         }
 
     }
+
 
     // CHOOSE COORDINATES TO SPAWN ENEMIES
     float choosePositionX()
@@ -97,9 +101,6 @@ public class SpawnerL1 : MonoBehaviour
         return enemyTypes[pick];
         // return "Taximan";
 
-
-
-
     }
     IEnumerator spawnEnemy()
     {
@@ -107,7 +108,7 @@ public class SpawnerL1 : MonoBehaviour
         {
             // GameObject enemy = Instantiate(enemyList[chooseEnemy()], new Vector2(choosePositionX(), choosePositionY()), transform.rotation);
             yield return new WaitForSeconds(5f);
-            GameObject enemy = objectPooler.SpawnFromPool(chooseEnemy(), new Vector3(choosePositionX(), choosePositionY(), 0), transform.rotation);
+            GameObject enemy = objectPooler.SpawnFromPool(chooseEnemy(), new Vector3(choosePositionX(), choosePositionY(), 0f), transform.rotation);
             enemy.transform.SetParent(InstantiatedParent);
             enemiesSpawned++;
         }
@@ -123,25 +124,34 @@ public class SpawnerL1 : MonoBehaviour
 
     }
 
-    void spawnPlatform()
+
+    IEnumerator spawnPlatform()
     {
         if (numOfPlatformsOnScreen.Length < 1)
         {
             platformsSpawned++;
-            GameObject platform_Pass = objectPooler.SpawnFromPool("Platform_Pass", new Vector3(choosePositionX(), choosePositionY(), 1), transform.rotation);
+            isSpawnPlatformStarted = true;
+            yield return new WaitForSeconds(6f);
+            GameObject platform_Pass = objectPooler.SpawnFromPool("Platform_Pass", new Vector3(choosePositionX(), choosePositionY(), 0f), transform.rotation);
             platform_Pass.transform.SetParent(InstantiatedParent);
+            isSpawnPlatformStarted = false;
 
         }
     }
 
-    void spawnResupply()
+    IEnumerator spawnResupply()
     {
-
-
-        GameObject resupplyTruck = objectPooler.SpawnFromPool("ResupplyTruck", new Vector3(choosePositionX(), choosePositionY(), 0), transform.rotation);
-        resupplyTruck.transform.SetParent(InstantiatedParent);
+        if (numOfHealthKitsOnScreen.Length < 1)
+        {
+            isSpawnResupplyStarted = true;
+            yield return new WaitForSeconds(10f);
+            GameObject resupplyTruck = objectPooler.SpawnFromPool("ResupplyTruck", new Vector3(choosePositionX(), choosePositionY(), 0f), transform.rotation);
+            resupplyTruck.transform.SetParent(InstantiatedParent);
+            isSpawnResupplyStarted = false;
+        }
 
     }
+
 
     void newWave()
     {

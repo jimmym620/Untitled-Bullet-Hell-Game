@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthKit : Pickup, IPooledObject
+public class HealthKit : Pickup
 {
     //Bouncing variables
     private Rigidbody2D rb_;
     public float force = 5;
+    public float HP_Value = 30;
     Vector3 lastVelocity;
 
-    public void onObjectSpawn()
-    {
-        Start();
-    }
+
 
     // Start is called before the first frame update
-    public override void Start()
+    public override void onObjectSpawn()
     {   
-        base.Start();
+        base.onObjectSpawn();
         rb_ = GetComponent<Rigidbody2D>();
         rb_.AddForce(new Vector2(9.8f * force, 9.8f * force));
+        
     }
 
     // Update is called once per frame
@@ -46,6 +45,10 @@ public class HealthKit : Pickup, IPooledObject
         base.OnTriggerEnter2D(other);
     }
 
+    public float giveHealth(){
+        return HP_Value;
+
+    }
 }
 
 //https://www.youtube.com/watch?v=RoZG5RARGF0

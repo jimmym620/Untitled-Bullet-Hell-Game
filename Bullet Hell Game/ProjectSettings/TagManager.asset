@@ -12,6 +12,7 @@ TagManager:
   - Breakable
   - ResupplyTruck
   - Pickup
+  - HealthKit
   layers:
   - Default
   - TransparentFX
