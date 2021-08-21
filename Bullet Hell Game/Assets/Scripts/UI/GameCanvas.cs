@@ -21,7 +21,7 @@ public class GameCanvas : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
-        
+
 
         Button resumeBTN = resumeButton.GetComponent<Button>();
         resumeBTN.onClick.AddListener(Resume);
@@ -50,7 +50,7 @@ public class GameCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && GameControl.instance.gameOver == false)
         {
             if (GameIsPaused)
             {
@@ -60,8 +60,9 @@ public class GameCanvas : MonoBehaviour
             {
                 Pause();
             }
-
         }
+
+
     }
 
     public void Resume()
@@ -89,11 +90,11 @@ public class GameCanvas : MonoBehaviour
         UI_SoundManager.Instance.stopL1Music();
     }
 
-    public void GameOver()
-    {
-        Time.timeScale = 0;
-        GameIsPaused = true;
-    }
+    // public void GameOver()
+    // {
+    //     Time.timeScale = 0;
+    //     GameIsPaused = true;
+    // }
 
     public void RestartGame()
     {

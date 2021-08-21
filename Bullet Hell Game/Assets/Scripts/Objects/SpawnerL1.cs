@@ -104,10 +104,10 @@ public class SpawnerL1 : MonoBehaviour
     }
     IEnumerator spawnEnemy()
     {
-        while (enemiesSpawned < enemyKillGoal)
+        while (enemiesSpawned < enemyKillGoal && GameControl.instance.gameOver == false)
         {
             // GameObject enemy = Instantiate(enemyList[chooseEnemy()], new Vector2(choosePositionX(), choosePositionY()), transform.rotation);
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(randomiseTime(2f , 5f));
             GameObject enemy = objectPooler.SpawnFromPool(chooseEnemy(), new Vector3(choosePositionX(), choosePositionY(), 0f), transform.rotation);
             enemy.transform.SetParent(InstantiatedParent);
             enemiesSpawned++;
@@ -131,7 +131,7 @@ public class SpawnerL1 : MonoBehaviour
         {
             platformsSpawned++;
             isSpawnPlatformStarted = true;
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(randomiseTime(4f, 7f));
             GameObject platform_Pass = objectPooler.SpawnFromPool("Platform_Pass", new Vector3(choosePositionX(), choosePositionY(), 0f), transform.rotation);
             platform_Pass.transform.SetParent(InstantiatedParent);
             isSpawnPlatformStarted = false;
@@ -144,7 +144,7 @@ public class SpawnerL1 : MonoBehaviour
         if (numOfHealthKitsOnScreen.Length < 1)
         {
             isSpawnResupplyStarted = true;
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(randomiseTime(7f, 10f));
             GameObject resupplyTruck = objectPooler.SpawnFromPool("ResupplyTruck", new Vector3(choosePositionX(), choosePositionY(), 0f), transform.rotation);
             resupplyTruck.transform.SetParent(InstantiatedParent);
             isSpawnResupplyStarted = false;
@@ -152,6 +152,11 @@ public class SpawnerL1 : MonoBehaviour
 
     }
 
+    float randomiseTime(float minSeconds, float maxSeconds)
+    {
+        float seconds = Random.Range(minSeconds, maxSeconds);
+        return seconds;
+    }
 
     void newWave()
     {

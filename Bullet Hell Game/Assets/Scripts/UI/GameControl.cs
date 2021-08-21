@@ -57,6 +57,7 @@ public class GameControl : MonoBehaviour
     {
         gameOverMenuUI.SetActive(true);
         gameOver = true;
+        Time.timeScale = 0;
 
     }
 

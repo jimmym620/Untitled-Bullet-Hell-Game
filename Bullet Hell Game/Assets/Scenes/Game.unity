@@ -2238,12 +2238,12 @@ PrefabInstance:
     - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
         type: 3}
       propertyPath: pools.Array.data[3].size
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
         type: 3}
       propertyPath: pools.Array.data[4].size
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
         type: 3}
