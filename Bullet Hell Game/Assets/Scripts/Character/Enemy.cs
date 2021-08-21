@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour, IEntity
     public float maxHealth;
     public float health;
     public AudioClip deathSound;
-    private bool deathPlayed = false;
+    private bool deathPlayed;
     public float moveSpeed = 1;
     public Rigidbody2D rb;
     public float yBoundaries = 1.7f;
@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour, IEntity
     public virtual void OnDisable()
     {
         gameObject.GetComponent<Collider2D>().enabled = true;
+        deathPlayed = false;
 
     }
 
@@ -67,7 +68,7 @@ public class Enemy : MonoBehaviour, IEntity
     // Destroy the game object on death
     public virtual void Die()
     {
-        animator.SetTrigger("Dead");
+        
         // Destroy(gameObject, deathAnim.GetCurrentAnimatorStateInfo(0).length);
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.SetActive(false);

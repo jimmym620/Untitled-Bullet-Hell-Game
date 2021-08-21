@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeathAnim : MonoBehaviour
 {
     Animator anim;
-    public float secondsToWait =1;
+    public float secondsToWait =.5f;
     // Start is called before the first frame update
     void Start()
     {

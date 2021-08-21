@@ -26,10 +26,10 @@ public class Pickup : MonoBehaviour, IPooledObject
     public virtual void Update()
     {
         // Fly towards player
-        if (flyToPlayer)
+        if (flyToPlayer && player != null)
         {
             playerDirection = -(transform.position - player.transform.position).normalized;
-            rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * 5f * (Time.time / timeStamp);
+            rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * 2.5f * (Time.time / timeStamp);
         }
     }
 

@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour, IEntity
     public float maxHealth;
     public float health;
     public Text HP_Display;
+    public bool debugDie = false;
 
     // public AudioClip playerDeathSound;
 
@@ -44,6 +45,11 @@ public class PlayerStats : MonoBehaviour, IEntity
         HP_Display.text = "Health \n" + health;
         if(health > maxHealth){
             health = maxHealth;
+        }
+
+        if(debugDie ){
+            Die();
+            debugDie = false;
         }
     }
 
