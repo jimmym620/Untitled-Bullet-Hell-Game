@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3916861964649818565}
   m_Layer: 0
   m_Name: elecCoin
-  m_TagString: Pickup
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeStamp: 0
-  player: {fileID: 0}
-  flyToPlayer: 0
-  force: 5
+  playerDirection: {x: 0, y: 0}

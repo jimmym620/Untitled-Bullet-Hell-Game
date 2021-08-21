@@ -1061,6 +1061,18 @@ Transform:
   m_Father: {fileID: 468975529}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1557695786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1557695786, guid: 880af9a7a6856c243904d009fccfce46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1902086075160249312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1900387944 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1881380648032734, guid: 07e09bd5716979042889458fd874bd3a,
@@ -1652,22 +1664,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnerL1
       objectReference: {fileID: 0}
-    - target: {fileID: 1881380648032734, guid: 07e09bd5716979042889458fd874bd3a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881380648032735, guid: 07e09bd5716979042889458fd874bd3a, type: 3}
-      propertyPath: enemyKillGoal
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881380648032735, guid: 07e09bd5716979042889458fd874bd3a, type: 3}
-      propertyPath: platformsToSpawn
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881380648032735, guid: 07e09bd5716979042889458fd874bd3a, type: 3}
-      propertyPath: allEnemiesSpawned
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1881380648032735, guid: 07e09bd5716979042889458fd874bd3a, type: 3}
       propertyPath: InstantiatedParent
       value: 
@@ -1934,11 +1930,6 @@ PrefabInstance:
       propertyPath: CloudObject
       value: 
       objectReference: {fileID: 940420452}
-    - target: {fileID: 3510446772945086550, guid: d180bdfc44e6f5140a21f3559efea773,
-        type: 3}
-      propertyPath: maxCloudCount
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d180bdfc44e6f5140a21f3559efea773, type: 3}
 --- !u!1001 &3771696256206577421
@@ -2017,10 +2008,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 410004926, guid: c28367c7f08f83a4fac0f9c0cb33339d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5604205917343292937, guid: c28367c7f08f83a4fac0f9c0cb33339d,
         type: 3}
       propertyPath: m_Name
@@ -2220,68 +2207,16 @@ PrefabInstance:
       propertyPath: passCollectedText
       value: 
       objectReference: {fileID: 1126548713}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
+    - target: {fileID: 6505835858487271194, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
         type: 3}
-      propertyPath: pools.Array.size
-      value: 9
-      objectReference: {fileID: 0}
+      propertyPath: coinsCollectedText
+      value: 
+      objectReference: {fileID: 1557695786}
     - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
         type: 3}
       propertyPath: PoolStorageObject
       value: 
       objectReference: {fileID: 546249518}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[7].tag
-      value: HealthKit
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[8].tag
-      value: ElecCoin
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[3].size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[4].size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[5].size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[6].size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[7].size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[8].size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[7].prefab
-      value: 
-      objectReference: {fileID: 5365510752907456511, guid: d0ce490a5e035fe43a0061d5d4c33f58,
-        type: 3}
-    - target: {fileID: 6505835858487271195, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6,
-        type: 3}
-      propertyPath: pools.Array.data[8].prefab
-      value: 
-      objectReference: {fileID: 3916861964649818564, guid: 2bf5afe2f66f2a34aaa7ae55d965f106,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3eb40f3e4c02d4d937d31d50bf15c6, type: 3}
 --- !u!1001 &8352712460891088746
@@ -2291,10 +2226,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 899201571, guid: efdcf48d96c78fa45a2fbf027de51ea6, type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1223342391729283175, guid: efdcf48d96c78fa45a2fbf027de51ea6,
         type: 3}
       propertyPath: HP_Display

@@ -19,13 +19,20 @@ public class PlayerCollectionPoint : MonoBehaviour
         if (other.gameObject.tag.Equals("Pickup"))
         {
             other.gameObject.SetActive(false);
+        }
 
+        if(other.gameObject.tag.Equals("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            GameControl.instance.coinsCollected++;
+            UI_SoundManager.Instance.playCoinPickup();
         }
 
         if (other.gameObject.tag.Equals("HealthKit"))
         {
             other.gameObject.SetActive(false);
             player.GetComponent<PlayerStats>().addHealth(other.GetComponent<HealthKit>().HP_Value);
+            UI_SoundManager.Instance.playHealthPickup();
         }
 
         if(other.gameObject.name.Equals("passenger_blue"))

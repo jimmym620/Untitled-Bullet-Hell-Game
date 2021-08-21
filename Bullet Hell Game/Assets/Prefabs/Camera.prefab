@@ -242,5 +242,5 @@ MonoBehaviour:
   cloudPrefab:
   - {fileID: 8344176040278300080, guid: 39fcb740fd66217449f1cf3585ff0eef, type: 3}
   cloudYPosition: 1.6
-  maxCloudCount: 30
+  maxCloudCount: 20
   CloudObject: {fileID: 0}

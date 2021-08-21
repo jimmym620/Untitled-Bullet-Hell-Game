@@ -48,11 +48,11 @@ MonoBehaviour:
   gameOverMenuUI: {fileID: 0}
   waveOverUI: {fileID: 0}
   waveIsOver: 0
-  numOfWaves: 2
-  currentWave: 0
   passsengersCollected: 0
   passCollectedText: {fileID: 0}
   platformOnScreen: 0
+  coinsCollected: 0
+  coinsCollectedText: {fileID: 0}
   gameOver: 0
   waveScreenActive: 0
 --- !u!114 &6505835858487271195
@@ -84,16 +84,24 @@ MonoBehaviour:
   - tag: Taximan
     prefab: {fileID: 3232726480732157712, guid: e3ef0febad5b7a74097f0bb6dc3ff744,
       type: 3}
-    size: 10
+    size: 8
   - tag: Bomber
     prefab: {fileID: 8607378897778565597, guid: 995d27ba397fd4549a9347ee8123f4dd,
       type: 3}
-    size: 5
+    size: 8
   - tag: Platform_Pass
     prefab: {fileID: 6602448160951984483, guid: 897f8be2198849e459ff539f2219950f,
       type: 3}
-    size: 3
+    size: 1
   - tag: ResupplyTruck
     prefab: {fileID: 8679325058126666262, guid: 5231832480b616547a5610ee0871f462,
       type: 3}
     size: 3
+  - tag: HealthKit
+    prefab: {fileID: 5365510752907456511, guid: d0ce490a5e035fe43a0061d5d4c33f58,
+      type: 3}
+    size: 3
+  - tag: ElecCoin
+    prefab: {fileID: 3916861964649818564, guid: 2bf5afe2f66f2a34aaa7ae55d965f106,
+      type: 3}
+    size: 10

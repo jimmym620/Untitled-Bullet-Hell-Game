@@ -44,11 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InstantiatedParent: {fileID: 0}
-  enemyList:
-  - {fileID: 8607378897778565597, guid: 995d27ba397fd4549a9347ee8123f4dd, type: 3}
-  enemyKillGoal: 20
+  enemyKillGoal: 10
   allEnemiesSpawned: 0
-  numOfResupTrucksOnScreen: []
   platformsSpawned: 0
-  platformsToSpawn: 3
+  platformsToSpawn: 5
   allPassengersCollected: 0

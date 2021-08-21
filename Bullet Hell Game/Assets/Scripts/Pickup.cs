@@ -8,7 +8,7 @@ public class Pickup : MonoBehaviour, IPooledObject
     [HideInInspector] public float timeStamp;
     [HideInInspector] public GameObject player;
     [HideInInspector] public bool flyToPlayer;
-    private Vector2 playerDirection;
+    [HideInInspector] public Vector2 playerDirection;
 
     // Start is called before the first frame update
     public virtual void onObjectSpawn()
@@ -28,9 +28,14 @@ public class Pickup : MonoBehaviour, IPooledObject
         // Fly towards player
         if (flyToPlayer && player != null)
         {
-            playerDirection = -(transform.position - player.transform.position).normalized;
-            rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * 2.5f * (Time.time / timeStamp);
+            fly();
         }
+    }
+
+    public virtual void fly()
+    {
+        playerDirection = -(transform.position - player.transform.position).normalized;
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * 2.5f * (Time.time / timeStamp);
     }
 
     public virtual void OnTriggerEnter2D(Collider2D other)

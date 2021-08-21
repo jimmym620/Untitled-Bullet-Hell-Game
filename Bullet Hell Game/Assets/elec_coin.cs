@@ -2,46 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class elec_coin : Pickup
+public class elec_coin : MonoBehaviour, IPooledObject
 {
-    private Rigidbody2D rb_;
-    public float force = 5;
-    Vector3 lastVelocity;
-    
+    GameObject player_;
+    private Rigidbody2D rb;
+    [HideInInspector] public float timeStamp;
+    [HideInInspector] public Vector2 playerDirection;
+    private bool flown;
 
-    public override void onObjectSpawn()
+    public void onObjectSpawn()
     {
-        base.onObjectSpawn();
-        rb_ = GetComponent<Rigidbody2D>();
-        // rb_.AddForce(new Vector2(-9.8f * force, 9.8f * force));
-        rb_.AddForce(new Vector2(getDirection() * force, getDirection() * force));
+        gameObject.SetActive(true);
+        flown = false;
+        player_ = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine("waitAndFly");
+    }
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
-    public override void Update()
+    void Update() {
+        if(flown && gameObject.activeSelf == true)
+        {
+            fly();
+        }
+    }
+    void fly()
     {
-        base.Update();
-        lastVelocity = rb_.velocity;
-
+        playerDirection = -(transform.position - player_.transform.position).normalized;
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * 5f * (Time.time / timeStamp);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    IEnumerator waitAndFly()
     {
-        // Bounce around the screen
-        var speed = lastVelocity.magnitude;
-        var direction = Vector3.Reflect(lastVelocity.normalized, other.GetContact(0).normal);
-
-        rb_.velocity = direction * Mathf.Max(speed, 0f);
+        yield return new WaitForSeconds(2f);
+        timeStamp = Time.time;
+        fly();
+        flown = true;
     }
 
-    public override void OnTriggerEnter2D(Collider2D other)
-    {
-        base.OnTriggerEnter2D(other);
-    }
 
-    float getDirection()
-    {
-        float direction = Random.Range(0, 2) == 0 ? -9.8f : 9.8f;
-        return direction;
-    }
+
 }

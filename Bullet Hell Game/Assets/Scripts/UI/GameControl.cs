@@ -13,9 +13,12 @@ public class GameControl : MonoBehaviour
     public GameObject gameOverMenuUI, waveOverUI;
     public bool waveIsOver; //is set to true in SpawnerL script
 
-    public int passsengersCollected = 0;
+    [HideInInspector] public int passsengersCollected = 0;
     public Text passCollectedText;
     public bool platformOnScreen;       //check if a platform is currently on the screen
+
+    [HideInInspector] public int coinsCollected = 0;
+    public Text coinsCollectedText;
 
     public bool gameOver = false;
     public bool waveScreenActive = false;
@@ -38,6 +41,7 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         passCollectedText.text = passsengersCollected.ToString();
+        coinsCollectedText.text = coinsCollected.ToString();
     }
 
     // Update is called once per frame
@@ -49,7 +53,7 @@ public class GameControl : MonoBehaviour
         }
 
         passCollectedText.text = "Passengers Collected: " + passsengersCollected + "/" + spawnerObject.GetComponent<SpawnerL1>().platformsToSpawn;
-
+        coinsCollectedText.text = "Coins: " + coinsCollected;
 
     }
 
