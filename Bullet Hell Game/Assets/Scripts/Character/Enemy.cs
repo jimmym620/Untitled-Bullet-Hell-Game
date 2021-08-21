@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IEntity
 {
+    ObjectPooler objectPooler;
     public float maxHealth;
     public float health;
     public AudioClip deathSound;
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour, IEntity
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        objectPooler = ObjectPooler.Instance;
 
 
     }
@@ -41,7 +43,7 @@ public class Enemy : MonoBehaviour, IEntity
         if (health <= 0f)
         {
             Die();
-            
+
         }
     }
 
@@ -68,8 +70,6 @@ public class Enemy : MonoBehaviour, IEntity
     // Destroy the game object on death
     public virtual void Die()
     {
-        
-        // Destroy(gameObject, deathAnim.GetCurrentAnimatorStateInfo(0).length);
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.SetActive(false);
         if (!deathPlayed)

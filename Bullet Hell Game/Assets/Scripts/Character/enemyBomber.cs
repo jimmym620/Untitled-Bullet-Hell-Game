@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyBomber : Enemy
+public class enemyBomber : Enemy, IPooledObject
 {
+    ObjectPooler objectPooler_;
     public float followSpeed;
     private Transform target;
     public float damage;
@@ -20,9 +21,10 @@ public class enemyBomber : Enemy
         anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
-    void Start()
+    public void onObjectSpawn()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        objectPooler_ = ObjectPooler.Instance;
     }
     private void OnEnable()
     {
@@ -46,6 +48,16 @@ public class enemyBomber : Enemy
             }
         }
 
+    }
+
+    public override void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0f)
+        {
+            Die();
+            objectPooler_.SpawnFromPool("ElecCoin", gameObject.transform.position, gameObject.transform.rotation);
+        }
     }
 
 

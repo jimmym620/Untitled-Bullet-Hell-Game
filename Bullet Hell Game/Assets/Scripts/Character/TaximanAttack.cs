@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TaximanAttack : Enemy, IPooledObject
 {
-    ObjectPooler objectPooler;
+    ObjectPooler objectPooler_;
     public Transform firePoint;
     private float DirY;
     public Animator firePointAnim;
@@ -15,13 +15,10 @@ public class TaximanAttack : Enemy, IPooledObject
     {
         // StartCoroutine(wait(3));
         DirY = -1f;
-        objectPooler = ObjectPooler.Instance;
+        objectPooler_ = ObjectPooler.Instance;
         health = maxHealth;
 
     }
-
-
-
 
     // Update is called once per frame
     void Update()
@@ -35,7 +32,7 @@ public class TaximanAttack : Enemy, IPooledObject
         {
             wait(3);
             // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            objectPooler.SpawnFromPool("Bullet_Red", firePoint.position, firePoint.rotation);
+            objectPooler_.SpawnFromPool("Bullet_Red", firePoint.position, firePoint.rotation);
             firePointAnim.SetTrigger("Shoot");
             AudioSource.PlayClipAtPoint(pickShootSound(), transform.position);
         }
@@ -52,12 +49,6 @@ public class TaximanAttack : Enemy, IPooledObject
         }
     }
 
-    //Patrolling up and down
-    // void FixedUpdate()
-    // {
-    //     rb.velocity = new Vector2(rb.velocity.x, DirY * moveSpeed);
-    // }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         // If hit the top border, change direction on y
@@ -66,19 +57,16 @@ public class TaximanAttack : Enemy, IPooledObject
             DirY *= -1f;
 
         }
+    }
 
-        // if (other.gameObject.tag == "BorderVertical")
-        // {
-        //     enteredScene = true;
-        // }
-
-        // // Entered the scene so this enemy cannot go outside of the vertical border
-        // if ((other.gameObject.tag == "BorderVertical") && enteredScene == true)
-        // {
-
-        //     rb.velocity = Vector2.zero;
-        // }
-
+    public override void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0f)
+        {
+            Die();
+            objectPooler_.SpawnFromPool("ElecCoin", gameObject.transform.position, gameObject.transform.rotation);
+        }
     }
 
     public float getDirection()

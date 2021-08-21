@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class L1B_Behaviour : Enemy
 {
-    ObjectPooler objectPooler;
+    ObjectPooler objectPooler_;
     public Transform firePoint;
     public HealthBar healthBar;
     
@@ -33,7 +33,7 @@ public class L1B_Behaviour : Enemy
         {
             wait(3);
             // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            objectPooler.SpawnFromPool("Bullet_Red", firePoint.position, firePoint.rotation);
+            objectPooler_.SpawnFromPool("Bullet_Red", firePoint.position, firePoint.rotation);
 
         }
 
