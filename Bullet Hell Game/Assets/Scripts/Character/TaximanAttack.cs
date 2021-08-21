@@ -65,9 +65,24 @@ public class TaximanAttack : Enemy, IPooledObject
         if (health <= 0f)
         {
             Die();
-            objectPooler_.SpawnFromPool("ElecCoin", gameObject.transform.position, gameObject.transform.rotation);
+            int num = Random.Range(1, 5);
+            for (int i = 0; i < num; i++){
+                objectPooler_.SpawnFromPool("ElecCoin", gameObject.transform.position, gameObject.transform.rotation);
+            }
+            
         }
     }
+    
+    // public Vector2 explodeOutwards(Vector3 instantiatedPosition ){
+    //     //take in gameObject.transform.position
+    //     float xVal = Random.Range(0.5f, 2f);
+    //     float yVal = Random.Range(0.5f, 2f);
+
+    //     Vector2 newPos = new Vector2(instantiatedPosition.x + xVal, instantiatedPosition.y + yVal);
+
+
+    //     return newPos;
+    // }
 
     public float getDirection()
     {

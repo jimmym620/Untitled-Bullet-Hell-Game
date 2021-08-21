@@ -9,6 +9,7 @@ public class elec_coin : MonoBehaviour, IPooledObject
     [HideInInspector] public float timeStamp;
     [HideInInspector] public Vector2 playerDirection;
     private bool flown;
+    private float force = 7f;
 
     public void onObjectSpawn()
     {
@@ -16,6 +17,7 @@ public class elec_coin : MonoBehaviour, IPooledObject
         flown = false;
         player_ = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine("waitAndFly");
+        rb.AddForce(transform.up * force);
     }
 
     void Awake()

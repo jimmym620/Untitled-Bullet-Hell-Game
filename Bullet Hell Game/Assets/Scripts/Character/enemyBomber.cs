@@ -14,7 +14,7 @@ public class enemyBomber : Enemy, IPooledObject
     int soundCount;
     int maxSoundCount = 52;
     private Animator anim;
-   
+
 
     private void Awake()
     {
@@ -56,7 +56,11 @@ public class enemyBomber : Enemy, IPooledObject
         if (health <= 0f)
         {
             Die();
-            objectPooler_.SpawnFromPool("ElecCoin", gameObject.transform.position, gameObject.transform.rotation);
+            int num = Random.Range(1, 5);
+            for (int i = 0; i < num; i++)
+            {
+                objectPooler_.SpawnFromPool("ElecCoin", gameObject.transform.position, gameObject.transform.rotation);
+            }
         }
     }
 
