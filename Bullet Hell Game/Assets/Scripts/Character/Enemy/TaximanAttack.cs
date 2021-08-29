@@ -30,7 +30,7 @@ public class TaximanAttack : Enemy, IPooledObject
     {
         if (gameObject.transform.position.x < 4)
         {
-            wait(3);
+            // wait(3);
             // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             objectPooler_.SpawnFromPool("Bullet_Red", firePoint.position, firePoint.rotation);
             firePointAnim.SetTrigger("Shoot");
@@ -51,12 +51,12 @@ public class TaximanAttack : Enemy, IPooledObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // If hit the top border, change direction on y
-        if (other.gameObject.tag == "Border")
-        {
-            DirY *= -1f;
+        // // If hit the top border, change direction on y
+        // if (other.gameObject.tag == "Border")
+        // {
+        //     DirY *= -1f;
 
-        }
+        // }
     }
 
     public override void TakeDamage(float amount)

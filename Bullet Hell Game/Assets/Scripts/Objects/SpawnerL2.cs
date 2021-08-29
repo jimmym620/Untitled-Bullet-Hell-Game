@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerL1 : MonoBehaviour
+public class SpawnerL2 : MonoBehaviour
 {
     private GameObject player;
     public Transform InstantiatedParent;
